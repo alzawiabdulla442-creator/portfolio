@@ -16,18 +16,28 @@ npm start          # serve the production build
 
 **https://portfolio-site-two-zeta-98.vercel.app**
 
-Deployed on Vercel, project `portfolio-site`.
+Deployed on Vercel from [github.com/alzawiabdulla442-creator/portfolio](https://github.com/alzawiabdulla442-creator/portfolio).
+Every push to `main` triggers a new deployment.
 
 ## Publishing changes
 
-Edit whatever you like, then **double-click `Deploy to Vercel.command`**.
-It rebuilds and pushes the new version to the same URL. Nothing else to do.
+The site is connected to GitHub. **Any push to `main` deploys automatically** —
+there is nothing else to run.
 
-From a terminal the equivalent is:
+**Easiest way (no setup, works from any device):** open the file on
+[github.com/alzawiabdulla442-creator/portfolio](https://github.com/alzawiabdulla442-creator/portfolio),
+click the pencil icon, edit, and hit *Commit changes*. Vercel picks it up within
+about a minute. Almost all the content lives in one file: `lib/data.ts`.
+
+**From this Mac:** edit, then
 
 ```bash
-npx vercel --prod
+git add -A
+git commit -m "what changed"
+git push
 ```
+
+(The first push from this machine will ask you to sign in to GitHub.)
 
 ### Changing the address
 
@@ -38,8 +48,8 @@ shorter one, rename the project in the Vercel dashboard
 Project → Settings → Domains.
 
 Either way, afterwards update the `SITE` constant in `app/layout.tsx`,
-`app/sitemap.ts` and `app/robots.ts` to the new address and redeploy, so
-canonical URLs, the sitemap and Open Graph images point at the right place.
+`app/sitemap.ts` and `app/robots.ts` to the new address and push, so canonical
+URLs, the sitemap and Open Graph images point at the right place.
 
 ## Structure
 
