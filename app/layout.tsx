@@ -9,7 +9,7 @@ import { Footer } from "@/components/footer";
 import { SmoothScroll, Cursor, RevealObserver } from "@/components/providers";
 import { PageTransition, ScrollProgress } from "@/components/transition";
 
-const SITE = "https://abdullah-alzawi.vercel.app";
+const SITE = "https://portfolio-site-two-zeta-98.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),

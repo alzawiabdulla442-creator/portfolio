@@ -6,3 +6,8 @@ out
 *.log
 .env*.local
 next-env.d.ts
+
+.vercel
+deploy-log.txt
+alias-log.txt
+LIVE-URL.txt
