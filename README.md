@@ -12,29 +12,34 @@ npm run build      # production build
 npm start          # serve the production build
 ```
 
-## Deploy to Vercel
+## Live site
 
-**Option A — CLI (fastest)**
+**https://portfolio-site-two-zeta-98.vercel.app**
+
+Deployed on Vercel, project `portfolio-site`.
+
+## Publishing changes
+
+Edit whatever you like, then **double-click `Deploy to Vercel.command`**.
+It rebuilds and pushes the new version to the same URL. Nothing else to do.
+
+From a terminal the equivalent is:
 
 ```bash
-npm i -g vercel
-vercel            # preview
-vercel --prod     # production
+npx vercel --prod
 ```
 
-**Option B — Git**
+### Changing the address
 
-Push this folder to a GitHub/GitLab repo, then import it at
-[vercel.com/new](https://vercel.com/new). Vercel auto-detects Next.js; no settings needed.
+`.vercel.app` subdomains can't be claimed from the command line. To get a
+shorter one, rename the project in the Vercel dashboard
+(Project → Settings → General → Project Name) — the production URL becomes
+`<new-name>.vercel.app` if that name is free. For a real domain, add it under
+Project → Settings → Domains.
 
-**Option C — Drag and drop**
-
-Zip this folder (without `node_modules` and `.next`) and drop it on
-[vercel.com/new](https://vercel.com/new).
-
-After the first deploy, update the `SITE` constant in `app/layout.tsx`,
-`app/sitemap.ts` and `app/robots.ts` to the live domain so canonical URLs,
-Open Graph images and the sitemap point at the right place.
+Either way, afterwards update the `SITE` constant in `app/layout.tsx`,
+`app/sitemap.ts` and `app/robots.ts` to the new address and redeploy, so
+canonical URLs, the sitemap and Open Graph images point at the right place.
 
 ## Structure
 
