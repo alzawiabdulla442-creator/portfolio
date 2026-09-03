@@ -7,53 +7,79 @@ import type { Project } from "@/lib/data";
 
 export function WorkIndex({ projects }: { projects: Project[] }) {
   const [hover, setHover] = useState<number | null>(null);
+
   const thumbRef = useRef<HTMLDivElement>(null);
-  const pos = useRef({ x: 0, y: 0, cx: 0, cy: 0 });
-  const raf = useRef(0);
+  // hover kept in a ref as well, so the animation loop can read it without
+  // being torn down and re-registered on every hover change
+  const hoverRef = useRef<number | null>(null);
+  const pos = useRef({ x: 0, y: 0, cx: 0, cy: 0, seen: false });
+
+  useEffect(() => {
+    hoverRef.current = hover;
+  }, [hover]);
 
   useEffect(() => {
     if (window.matchMedia("(pointer: coarse)").matches) return;
 
+    let raf = 0;
+
     const move = (e: MouseEvent) => {
-      pos.current.x = e.clientX;
-      pos.current.y = e.clientY;
+      const p = pos.current;
+      p.x = e.clientX;
+      p.y = e.clientY;
+      // first reading: jump rather than glide in from the corner
+      if (!p.seen) {
+        p.seen = true;
+        p.cx = p.x;
+        p.cy = p.y;
+      }
     };
+
     const tick = () => {
       const p = pos.current;
-      p.cx += (p.x - p.cx) * 0.11;
-      p.cy += (p.y - p.cy) * 0.11;
-      if (thumbRef.current) {
-        const skew = Math.max(-9, Math.min(9, (p.x - p.cx) * 0.16));
-        thumbRef.current.style.transform = `translate(${p.cx}px, ${p.cy}px) translate(-50%, -50%) rotate(${skew * 0.25}deg) scale(${hover === null ? 0.9 : 1})`;
+      const el = thumbRef.current;
+      if (el && p.seen) {
+        p.cx += (p.x - p.cx) * 0.14;
+        p.cy += (p.y - p.cy) * 0.14;
+        const drift = Math.max(-10, Math.min(10, (p.x - p.cx) * 0.16));
+        const on = hoverRef.current !== null;
+        el.style.transform =
+          `translate3d(${p.cx}px, ${p.cy}px, 0) translate(-50%, -50%) ` +
+          `rotate(${drift * 0.22}deg) scale(${on ? 1 : 0.88})`;
       }
-      raf.current = requestAnimationFrame(tick);
+      raf = requestAnimationFrame(tick);
     };
+
     window.addEventListener("mousemove", move, { passive: true });
-    raf.current = requestAnimationFrame(tick);
+    raf = requestAnimationFrame(tick);
+
     return () => {
       window.removeEventListener("mousemove", move);
-      cancelAnimationFrame(raf.current);
+      cancelAnimationFrame(raf);
     };
-  }, [hover]);
+    // deliberately empty: the loop owns the transform for the life of the page.
+    // Re-running it on hover changes was resetting the element's position.
+  }, []);
 
   const active = hover !== null ? projects[hover] : null;
 
   return (
     <div className="windex">
+      {/* No inline `transform` here — React would rewrite it on every render and
+          snap the preview back to the top-left corner. The rAF loop owns it. */}
       <div
         ref={thumbRef}
         className={`wrow-thumb ${hover !== null ? "show" : ""}`}
         aria-hidden="true"
-        style={{ transform: "translate(-50%,-50%) scale(.9)" }}
       >
         {active && (
           <Image
             src={active.cover.src}
             alt=""
-            width={300}
-            height={210}
-            sizes="300px"
-            quality={70}
+            width={340}
+            height={238}
+            sizes="340px"
+            quality={74}
           />
         )}
       </div>
@@ -64,7 +90,7 @@ export function WorkIndex({ projects }: { projects: Project[] }) {
           href={`/work/${p.slug}`}
           className="wrow"
           onMouseEnter={() => setHover(i)}
-          onMouseLeave={() => setHover(null)}
+          onMouseLeave={() => setHover((cur) => (cur === i ? null : cur))}
           data-cursor="View"
         >
           <div className="wrow-in">
@@ -94,7 +120,7 @@ export function WorkIndex({ projects }: { projects: Project[] }) {
                 width={p.cover.w}
                 height={p.cover.h}
                 sizes="100vw"
-                quality={68}
+                quality={74}
               />
             </div>
             <div className="wcard-head">
