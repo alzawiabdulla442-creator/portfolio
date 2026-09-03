@@ -18,21 +18,68 @@ export function Nav() {
   const [solid, setSolid] = useState(false);
 
   useEffect(() => {
-    let last = window.scrollY;
+    // Distance-based hysteresis. Comparing this frame's y against the previous
+    // frame's flapped badly: with smooth scrolling a slow drag produces 1–3px
+    // frames with occasional 5–7px ones, so any per-frame threshold flips
+    // constantly. Instead we anchor at the point the direction last changed and
+    // require a real amount of travel before committing to a state.
+    const TOP = 260; // always visible above this
+    const HIDE_AFTER = 140; // continuous downward travel before hiding
+    const SHOW_AFTER = 60; // continuous upward travel before showing again
+    const DEAD = 0.6; // ignore sub-pixel jitter
+
+    let lastY = window.scrollY;
+    let anchor = lastY;
+    let dir = 0;
+    let isHidden = false;
+    let isSolid = false;
     let ticking = false;
+
+    const measure = () => {
+      const y = Math.max(0, window.scrollY);
+
+      const solid = y > 40;
+      if (solid !== isSolid) {
+        isSolid = solid;
+        setSolid(solid);
+      }
+
+      const delta = y - lastY;
+      if (Math.abs(delta) > DEAD) {
+        const d = delta > 0 ? 1 : -1;
+        if (d !== dir) {
+          dir = d;
+          anchor = lastY; // direction changed — start measuring travel from here
+        }
+        lastY = y;
+      }
+
+      let next = isHidden;
+      if (y <= TOP) {
+        next = false;
+        anchor = y;
+      } else if (dir > 0 && y - anchor > HIDE_AFTER) {
+        next = true;
+      } else if (dir < 0 && anchor - y > SHOW_AFTER) {
+        next = false;
+      }
+
+      if (next !== isHidden) {
+        isHidden = next;
+        setHidden(next);
+      }
+      ticking = false;
+    };
+
     const onScroll = () => {
       if (ticking) return;
       ticking = true;
-      requestAnimationFrame(() => {
-        const y = window.scrollY;
-        setSolid(y > 40);
-        setHidden(y > 240 && y > last + 4);
-        last = y;
-        ticking = false;
-      });
+      requestAnimationFrame(measure);
     };
+
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    ticking = true;
+    measure();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
