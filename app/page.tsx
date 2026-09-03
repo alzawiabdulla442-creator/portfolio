@@ -13,7 +13,9 @@ import {
 } from "@/components/sections";
 
 export default function Home() {
-  const featured = projects.slice(0, 6);
+  // A shortlist, not the whole index — otherwise "Selected Work" and the
+  // "All N projects" link below it lead to exactly the same list.
+  const featured = projects.slice(0, 4);
 
   return (
     <>
