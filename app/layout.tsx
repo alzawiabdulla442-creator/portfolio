@@ -8,8 +8,7 @@ import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { SmoothScroll, Cursor, RevealObserver } from "@/components/providers";
 import { PageTransition, ScrollProgress } from "@/components/transition";
-
-const SITE = "https://portfolio-site-two-zeta-98.vercel.app";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
