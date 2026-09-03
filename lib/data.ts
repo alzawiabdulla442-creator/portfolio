@@ -477,7 +477,7 @@ export const capabilities = [
   {
     id: "02",
     title: "Digital",
-    items: ["UI/UX Design", "Web Design", "Web Development", "WordPress", "Programming"],
+    items: ["UI/UX Design", "Web Design", "Web Development", "WordPress"],
   },
   {
     id: "03",
@@ -487,7 +487,6 @@ export const capabilities = [
       "Digital Marketing",
       "Content Planning",
       "Campaign Coordination",
-      "Market Research",
     ],
   },
   {

@@ -9,7 +9,6 @@ const links = [
   { href: "/", label: "Index" },
   { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export function Nav() {
@@ -20,11 +19,17 @@ export function Nav() {
 
   useEffect(() => {
     let last = window.scrollY;
+    let ticking = false;
     const onScroll = () => {
-      const y = window.scrollY;
-      setSolid(y > 40);
-      setHidden(y > 220 && y > last);
-      last = y;
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        setSolid(y > 40);
+        setHidden(y > 240 && y > last + 4);
+        last = y;
+        ticking = false;
+      });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
@@ -41,6 +46,8 @@ export function Nav() {
       document.documentElement.style.overflow = "";
     };
   }, [open]);
+
+  const contactActive = path.startsWith("/contact");
 
   return (
     <>
@@ -61,18 +68,33 @@ export function Nav() {
             })}
           </nav>
 
-          <button
-            className="nav-toggle"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls="menu-panel"
-          >
-            <span className="meta">{open ? "Close" : "Menu"}</span>
-            <span className={`nav-burger ${open ? "is-open" : ""}`} aria-hidden="true">
-              <i />
-              <i />
-            </span>
-          </button>
+          <div className="nav-end">
+            <Link
+              href="/contact"
+              className={`cbtn ${contactActive ? "is-active" : ""}`}
+              data-cursor="Talk"
+            >
+              <span className="cbtn-dot" aria-hidden="true" />
+              <span className="cbtn-slide">
+                <span>Contact</span>
+                <span aria-hidden="true">Say hello</span>
+              </span>
+            </Link>
+
+            <button
+              className="nav-toggle"
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              aria-controls="menu-panel"
+              aria-label={open ? "Close menu" : "Open menu"}
+            >
+              <span className="meta">{open ? "Close" : "Menu"}</span>
+              <span className={`nav-burger ${open ? "is-open" : ""}`} aria-hidden="true">
+                <i />
+                <i />
+              </span>
+            </button>
+          </div>
         </div>
       </header>
 
@@ -80,7 +102,7 @@ export function Nav() {
         <div className="menu-inner shell">
           <p className="meta">Menu</p>
           <ul className="menu-list">
-            {links.map((l, i) => (
+            {[...links, { href: "/contact", label: "Contact" }].map((l, i) => (
               <li key={l.href} style={{ ["--d" as string]: `${90 + i * 70}ms` }}>
                 <Link href={l.href}>
                   <span className="menu-num meta">0{i + 1}</span>

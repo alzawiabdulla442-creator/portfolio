@@ -94,19 +94,20 @@ export default function AboutPage() {
             </div>
 
             <div>
-              <figure className="about-portrait rv">
-                <BrandPattern className="pat" />
-                <Image
-                  src="/brand/portrait.webp"
-                  alt="Abdullah Alzawi"
-                  width={858}
-                  height={948}
-                  sizes="(max-width: 980px) 80vw, 40vw"
-                  quality={90}
-                  priority
-                />
+              <figure className="portrait rv">
+                <div className="portrait-frame">
+                  <Image
+                    src="/brand/portrait.webp"
+                    alt="Abdullah Alzawi"
+                    width={858}
+                    height={948}
+                    sizes="(max-width: 980px) 80vw, 40vw"
+                    quality={90}
+                    priority
+                  />
+                </div>
                 <figcaption className="meta">
-                  <span className="meta-amber">◆</span> Abdullah Alzawi — Benghazi
+                  <span className="meta-amber">◆</span> Abdullah Alzawi — Benghazi, Libya
                 </figcaption>
               </figure>
 

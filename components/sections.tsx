@@ -21,17 +21,6 @@ export function Hero() {
     <section className="hero">
       <BrandPattern className="hero-pattern" />
 
-      <div className="hero-obj" aria-hidden="true">
-        <span className="hero-obj-glow" />
-        <Image
-          src="/brand/mark-3d.webp"
-          alt=""
-          width={545}
-          height={553}
-          priority
-          sizes="(max-width: 900px) 40vw, 30vw"
-        />
-      </div>
 
       <div className="shell hero-inner">
         <div className="hero-top">
@@ -277,18 +266,19 @@ export function AboutBlock() {
             </div>
           </div>
 
-          <figure className="about-portrait rv">
-            <BrandPattern className="pat" />
-            <Image
-              src="/brand/portrait.webp"
-              alt="Abdullah Alzawi"
-              width={858}
-              height={948}
-              sizes="(max-width: 980px) 80vw, 40vw"
-              quality={90}
-            />
+          <figure className="portrait rv">
+            <div className="portrait-frame">
+              <Image
+                src="/brand/portrait.webp"
+                alt="Abdullah Alzawi"
+                width={858}
+                height={948}
+                sizes="(max-width: 980px) 80vw, 40vw"
+                quality={90}
+              />
+            </div>
             <figcaption className="meta">
-              <span className="meta-amber">◆</span> Abdullah Alzawi — Benghazi
+              <span className="meta-amber">◆</span> Abdullah Alzawi — Benghazi, Libya
             </figcaption>
           </figure>
         </div>
