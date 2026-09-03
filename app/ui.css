@@ -1224,3 +1224,124 @@
     animation: none;
   }
 }
+
+/* ---------------- 3D MARK IN HERO ---------------- */
+
+.hero-obj {
+  position: absolute;
+  right: clamp(20px, 4vw, 84px);
+  top: clamp(128px, 20vh, 215px);
+  width: clamp(140px, 17vw, 262px);
+  z-index: 1;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+}
+.hero-obj img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 26px 54px rgba(0, 0, 0, 0.6));
+  animation: markfloat 11s ease-in-out infinite;
+}
+.hero-obj-glow {
+  position: absolute;
+  inset: -22%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 42% 36%,
+    rgba(255, 166, 0, 0.24),
+    rgba(255, 166, 0, 0.05) 48%,
+    transparent 72%
+  );
+  filter: blur(20px);
+  animation: markglow 11s ease-in-out infinite;
+}
+@keyframes markfloat {
+  0%,
+  100% {
+    transform: translateY(-8px) rotate(-1.6deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(1.6deg);
+  }
+}
+@keyframes markglow {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+@media (max-width: 900px) {
+  /* no room beside the name at this width — give the mark its own block above it */
+  .hero {
+    padding-top: 92px;
+  }
+  .hero-obj {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 33vw;
+    max-width: 148px;
+    margin: 0 var(--gutter) clamp(6px, 1.6vh, 18px) auto;
+  }
+}
+
+/* ---------------- PORTRAIT ---------------- */
+
+.about-portrait {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink-2);
+  aspect-ratio: 4 / 5;
+  display: grid;
+  place-items: end center;
+  border: 1px solid var(--line);
+}
+.on-paper .about-portrait {
+  background: var(--paper-2);
+  border-color: rgba(10, 10, 10, 0.12);
+}
+.about-portrait .pat {
+  position: absolute;
+  inset: -18%;
+  width: 136%;
+  color: var(--fg);
+  opacity: 0.07;
+  z-index: 0;
+}
+.about-portrait img {
+  position: relative;
+  z-index: 1;
+  width: 84%;
+  height: auto;
+  align-self: end;
+  filter: drop-shadow(0 22px 44px rgba(0, 0, 0, 0.28));
+}
+.about-portrait::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 34%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to top, var(--ink-2) 6%, rgba(18, 18, 18, 0.72) 42%, transparent);
+}
+.on-paper .about-portrait::after {
+  background: linear-gradient(to top, var(--paper-2) 6%, rgba(232, 228, 218, 0.7) 42%, transparent);
+}
+.about-portrait figcaption {
+  position: absolute;
+  left: 16px;
+  bottom: 13px;
+  z-index: 3;
+}
+.about-portrait img {
+  width: 80%;
+}

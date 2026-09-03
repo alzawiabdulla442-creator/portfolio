@@ -41,7 +41,7 @@ export const projects: Project[] = [
     accent: "#F38222",
     summary:
       "A racket-sports club rebuilt from the mark outward — corrected logo geometry, a full brand book, and the match-day campaign language that ran across an entire championship.",
-    cover: { src: w("padel-gulf/hero.webp"), w: 1111, h: 625, alt: "Padel Gulf identity applied to a racket and court photograph" },
+    cover: { src: w("padel-gulf/hero.webp"), w: 1666, h: 937, alt: "Padel Gulf identity applied to a racket and court photograph" },
     overview:
       "Padel Gulf is a racket-sports club in Benghazi running padel, touch tennis, pickleball, mini tennis and 3v3 mini goal on one site. The work covered two halves that usually sit with two different suppliers: the identity system itself, and the week-to-week campaign design that puts it in front of an audience.",
     context:
@@ -73,19 +73,19 @@ export const projects: Project[] = [
     ],
     typefaces: [{ label: "English", name: "Anybody" }],
     gallery: [
-      { src: w("padel-gulf/g1.webp"), w: 860, h: 484, alt: "Padel Gulf visual identity manual cover" },
-      { src: w("padel-gulf/g5.webp"), w: 860, h: 484, alt: "Padel Gulf logo variation grid" },
-      { src: w("padel-gulf/g6.webp"), w: 860, h: 484, alt: "Padel Gulf brand pattern derived from the court net" },
-      { src: w("padel-gulf/g2.webp"), w: 860, h: 484, alt: "Padel Gulf championship billboard in situ" },
-      { src: w("padel-gulf/g3.webp"), w: 860, h: 484, alt: "Padel Gulf branded hoodie application" },
-      { src: w("padel-gulf/g4.webp"), w: 860, h: 484, alt: "Padel Gulf staff lanyards and access cards" },
-      { src: w("padel-gulf/g7.webp"), w: 804, h: 1005, alt: "Padel Gulf championship kick-off campaign post" },
-      { src: w("padel-gulf/g13.webp"), w: 804, h: 1005, alt: "Al-Khalij first padel tennis championship announcement" },
-      { src: w("padel-gulf/g8.webp"), w: 804, h: 1005, alt: "Championship winners campaign post" },
-      { src: w("padel-gulf/g9.webp"), w: 804, h: 1005, alt: "VIP gaming room campaign post" },
-      { src: w("padel-gulf/g10.webp"), w: 804, h: 1005, alt: "Touch tennis sport announcement post" },
-      { src: w("padel-gulf/g11.webp"), w: 804, h: 1005, alt: "Padel tennis sport announcement post" },
-      { src: w("padel-gulf/g12.webp"), w: 804, h: 1005, alt: "Just Play Padel Gulf campaign post" },
+      { src: w("padel-gulf/g1.webp"), w: 1300, h: 731, alt: "Padel Gulf visual identity manual cover" },
+      { src: w("padel-gulf/g5.webp"), w: 1300, h: 731, alt: "Padel Gulf logo variation grid" },
+      { src: w("padel-gulf/g6.webp"), w: 1300, h: 731, alt: "Padel Gulf brand pattern derived from the court net" },
+      { src: w("padel-gulf/g2.webp"), w: 1300, h: 731, alt: "Padel Gulf championship billboard in situ" },
+      { src: w("padel-gulf/g3.webp"), w: 1300, h: 731, alt: "Padel Gulf branded hoodie application" },
+      { src: w("padel-gulf/g4.webp"), w: 1300, h: 731, alt: "Padel Gulf staff lanyards and access cards" },
+      { src: w("padel-gulf/g7.webp"), w: 1205, h: 1507, alt: "Padel Gulf championship kick-off campaign post" },
+      { src: w("padel-gulf/g13.webp"), w: 1205, h: 1507, alt: "Al-Khalij first padel tennis championship announcement" },
+      { src: w("padel-gulf/g8.webp"), w: 1205, h: 1507, alt: "Championship winners campaign post" },
+      { src: w("padel-gulf/g9.webp"), w: 1205, h: 1507, alt: "VIP gaming room campaign post" },
+      { src: w("padel-gulf/g10.webp"), w: 1205, h: 1507, alt: "Touch tennis sport announcement post" },
+      { src: w("padel-gulf/g11.webp"), w: 1205, h: 1507, alt: "Padel tennis sport announcement post" },
+      { src: w("padel-gulf/g12.webp"), w: 1205, h: 1507, alt: "Just Play Padel Gulf campaign post" },
     ],
   },
   {
@@ -101,7 +101,7 @@ export const projects: Project[] = [
     accent: "#DC1419",
     summary:
       "An engineering firm that works below ground needed a mark that showed it. The central T became a drilling rig — and the rig became the pattern, the icon and the site hoarding.",
-    cover: { src: w("geotechnica/hero.webp"), w: 1110, h: 624, alt: "Geotechnica branded site hoarding at a construction site" },
+    cover: { src: w("geotechnica/hero.webp"), w: 1664, h: 936, alt: "Geotechnica branded site hoarding at a construction site" },
     overview:
       "Geotechnica works in geotechnical engineering and deep foundation solutions — soil investigation, drilling, ground work. The identity had to read as technical and dependable at the distance of a site hoarding, and still hold together in a printed business book.",
     context:
@@ -136,14 +136,14 @@ export const projects: Project[] = [
       { label: "Arabic", name: "Almarai" },
     ],
     gallery: [
-      { src: w("geotechnica/g8.webp"), w: 860, h: 483, alt: "Geotechnica primary wordmark with the drilling rig T" },
-      { src: w("geotechnica/g1.webp"), w: 860, h: 483, alt: "Geotechnica brand guide cover typography" },
-      { src: w("geotechnica/g7.webp"), w: 860, h: 483, alt: "Geotechnica brand pattern and colour system" },
-      { src: w("geotechnica/g5.webp"), w: 860, h: 483, alt: "Three Geotechnica pattern systems side by side" },
-      { src: w("geotechnica/g6.webp"), w: 860, h: 483, alt: "Geotechnica colour palette swatches" },
-      { src: w("geotechnica/g2.webp"), w: 860, h: 483, alt: "Geotechnica branded safety helmets" },
-      { src: w("geotechnica/g3.webp"), w: 860, h: 483, alt: "Geotechnica hi-vis vest application" },
-      { src: w("geotechnica/g4.webp"), w: 860, h: 483, alt: "Geotechnica branded fleet vehicle" },
+      { src: w("geotechnica/g8.webp"), w: 1300, h: 731, alt: "Geotechnica primary wordmark with the drilling rig T" },
+      { src: w("geotechnica/g1.webp"), w: 1300, h: 731, alt: "Geotechnica brand guide cover typography" },
+      { src: w("geotechnica/g7.webp"), w: 1300, h: 731, alt: "Geotechnica brand pattern and colour system" },
+      { src: w("geotechnica/g5.webp"), w: 1300, h: 731, alt: "Three Geotechnica pattern systems side by side" },
+      { src: w("geotechnica/g6.webp"), w: 1300, h: 731, alt: "Geotechnica colour palette swatches" },
+      { src: w("geotechnica/g2.webp"), w: 1300, h: 731, alt: "Geotechnica branded safety helmets" },
+      { src: w("geotechnica/g3.webp"), w: 1300, h: 731, alt: "Geotechnica hi-vis vest application" },
+      { src: w("geotechnica/g4.webp"), w: 1300, h: 731, alt: "Geotechnica branded fleet vehicle" },
     ],
   },
   {
@@ -159,7 +159,7 @@ export const projects: Project[] = [
     accent: "#64329A",
     summary:
       "A complete identity for a cultural clothing brand — a visual language that carries heritage and craft without turning into costume.",
-    cover: { src: w("leyan-boutique/hero.webp"), w: 1094, h: 615, alt: "Leyan Boutique identity over a photograph of an abaya" },
+    cover: { src: w("leyan-boutique/hero.webp"), w: 1640, h: 923, alt: "Leyan Boutique identity over a photograph of an abaya" },
     overview:
       "Leyan Boutique sells cultural clothing. The identity had to hold two things at once: the heritage the garments come from, and a contemporary retail presence that works on a hang tag, a shopfront sign and a phone screen.",
     context:
@@ -190,13 +190,13 @@ export const projects: Project[] = [
       { label: "Arabic", name: "KufiStandardGK" },
     ],
     gallery: [
-      { src: w("leyan-boutique/g7.webp"), w: 860, h: 483, alt: "Leyan Boutique primary logo construction" },
-      { src: w("leyan-boutique/g5.webp"), w: 860, h: 483, alt: "Leyan Boutique brand pattern and hands motif" },
-      { src: w("leyan-boutique/g6.webp"), w: 860, h: 483, alt: "Leyan Boutique colour palette" },
-      { src: w("leyan-boutique/g2.webp"), w: 860, h: 483, alt: "Leyan Boutique hang tag" },
-      { src: w("leyan-boutique/g4.webp"), w: 860, h: 483, alt: "Leyan Boutique branded hanger and garment" },
-      { src: w("leyan-boutique/g3.webp"), w: 860, h: 483, alt: "Leyan Boutique shopfront signage mockup" },
-      { src: w("leyan-boutique/g1.webp"), w: 860, h: 483, alt: "Leyan Boutique bilingual campaign artwork" },
+      { src: w("leyan-boutique/g7.webp"), w: 1300, h: 732, alt: "Leyan Boutique primary logo construction" },
+      { src: w("leyan-boutique/g5.webp"), w: 1300, h: 732, alt: "Leyan Boutique brand pattern and hands motif" },
+      { src: w("leyan-boutique/g6.webp"), w: 1300, h: 732, alt: "Leyan Boutique colour palette" },
+      { src: w("leyan-boutique/g2.webp"), w: 1300, h: 732, alt: "Leyan Boutique hang tag" },
+      { src: w("leyan-boutique/g4.webp"), w: 1300, h: 732, alt: "Leyan Boutique branded hanger and garment" },
+      { src: w("leyan-boutique/g3.webp"), w: 1300, h: 732, alt: "Leyan Boutique shopfront signage mockup" },
+      { src: w("leyan-boutique/g1.webp"), w: 1300, h: 732, alt: "Leyan Boutique bilingual campaign artwork" },
     ],
   },
   {
@@ -212,7 +212,7 @@ export const projects: Project[] = [
     accent: "#FE010C",
     summary:
       "PlayStation culture rebuilt as a brand system — four hard colours, a plate-shaped logo, and a pattern made of the shapes everyone already recognises.",
-    cover: { src: w("sala-sony/hero.webp"), w: 1180, h: 664, alt: "Sala Sony illuminated storefront sign at night" },
+    cover: { src: w("sala-sony/hero.webp"), w: 1900, h: 1069, alt: "Sala Sony illuminated storefront sign at night" },
     overview:
       "Sala Sony is an entertainment destination where gaming, relaxation and social experiences come together — PlayStation gaming, billiards and VIP lounges under one roof.",
     context:
@@ -242,13 +242,13 @@ export const projects: Project[] = [
     ],
     typefaces: [{ label: "Arabic & English", name: "Changa" }],
     gallery: [
-      { src: w("sala-sony/g7.webp"), w: 860, h: 484, alt: "Sala Sony primary logo on black" },
-      { src: w("sala-sony/g1.webp"), w: 860, h: 484, alt: "Sala Sony app icon in context on a phone home screen" },
-      { src: w("sala-sony/g2.webp"), w: 860, h: 484, alt: "Sala Sony app icon variants" },
-      { src: w("sala-sony/g3.webp"), w: 860, h: 484, alt: "Sala Sony colour palette swatches" },
-      { src: w("sala-sony/g4.webp"), w: 860, h: 484, alt: "Sala Sony brand typography specimen in Changa" },
-      { src: w("sala-sony/g5.webp"), w: 860, h: 484, alt: "Sala Sony stacked colour-bar brand pattern" },
-      { src: w("sala-sony/g6.webp"), w: 860, h: 484, alt: "Sala Sony social visual samples" },
+      { src: w("sala-sony/g7.webp"), w: 1300, h: 732, alt: "Sala Sony primary logo on black" },
+      { src: w("sala-sony/g1.webp"), w: 1300, h: 732, alt: "Sala Sony app icon in context on a phone home screen" },
+      { src: w("sala-sony/g2.webp"), w: 1300, h: 732, alt: "Sala Sony app icon variants" },
+      { src: w("sala-sony/g3.webp"), w: 1300, h: 732, alt: "Sala Sony colour palette swatches" },
+      { src: w("sala-sony/g4.webp"), w: 1300, h: 732, alt: "Sala Sony brand typography specimen in Changa" },
+      { src: w("sala-sony/g5.webp"), w: 1300, h: 732, alt: "Sala Sony stacked colour-bar brand pattern" },
+      { src: w("sala-sony/g6.webp"), w: 1300, h: 731, alt: "Sala Sony social visual samples" },
     ],
   },
   {
@@ -264,7 +264,7 @@ export const projects: Project[] = [
     accent: "#1F4D3D",
     summary:
       "A residential development marketed one component at a time — villas, townhouses, apartments, retail, school, club house — as a single, patient content system.",
-    cover: { src: w("senwan-gardens/hero.webp"), w: 837, h: 1046, alt: "Senwan Gardens club house and central gardens render" },
+    cover: { src: w("senwan-gardens/hero.webp"), w: 1255, h: 1569, alt: "Senwan Gardens club house and central gardens render" },
     overview:
       "Senwan Gardens is a residential development under Sonwan Holding Group. As Social Media & Digital Marketing Manager I prepared and coordinated the content plans and campaign activity for the development alongside the group's other brands.",
     context:
@@ -285,14 +285,14 @@ export const projects: Project[] = [
       "Supporting campaign work for the group's wider real-estate and exhibition activity",
     ],
     gallery: [
-      { src: w("senwan-gardens/g2.webp"), w: 837, h: 1046, alt: "Senwan Gardens villas render" },
-      { src: w("senwan-gardens/g3.webp"), w: 837, h: 1046, alt: "Senwan Gardens townhouse render" },
-      { src: w("senwan-gardens/g4.webp"), w: 837, h: 1046, alt: "Senwan Gardens apartments render" },
-      { src: w("senwan-gardens/g5.webp"), w: 837, h: 1046, alt: "Senwan Gardens retail plaza render" },
-      { src: w("senwan-gardens/g6.webp"), w: 837, h: 1046, alt: "Senwan Gardens office render" },
-      { src: w("senwan-gardens/g7.webp"), w: 837, h: 1046, alt: "Senwan Gardens school render" },
-      { src: w("senwan-gardens/g1.webp"), w: 837, h: 1046, alt: "Senwan Gardens nature trail render" },
-      { src: w("senwan-gardens/g8.webp"), w: 860, h: 855, alt: "Sonwan Holding Group exhibition campaign artwork" },
+      { src: w("senwan-gardens/g2.webp"), w: 1255, h: 1569, alt: "Senwan Gardens villas render" },
+      { src: w("senwan-gardens/g3.webp"), w: 1255, h: 1569, alt: "Senwan Gardens townhouse render" },
+      { src: w("senwan-gardens/g4.webp"), w: 1255, h: 1569, alt: "Senwan Gardens apartments render" },
+      { src: w("senwan-gardens/g5.webp"), w: 1255, h: 1569, alt: "Senwan Gardens retail plaza render" },
+      { src: w("senwan-gardens/g6.webp"), w: 1255, h: 1569, alt: "Senwan Gardens office render" },
+      { src: w("senwan-gardens/g7.webp"), w: 1255, h: 1569, alt: "Senwan Gardens school render" },
+      { src: w("senwan-gardens/g1.webp"), w: 1255, h: 1569, alt: "Senwan Gardens nature trail render" },
+      { src: w("senwan-gardens/g8.webp"), w: 1300, h: 1293, alt: "Sonwan Holding Group exhibition campaign artwork" },
     ],
   },
   {
@@ -308,7 +308,7 @@ export const projects: Project[] = [
     accent: "#E4032E",
     summary:
       "Hypermarket content run on a retail calendar — clearance, seasonal, countdown — where the brand has to stay recognisable while the message changes every week.",
-    cover: { src: w("geant-libya/hero.webp"), w: 1125, h: 1125, alt: "Géant Libya clearance campaign artwork" },
+    cover: { src: w("geant-libya/hero.webp"), w: 1687, h: 1687, alt: "Géant Libya clearance campaign artwork" },
     overview:
       "Géant Libya is one of the hypermarket brands whose social presence I supervise under Sonwan Holding Group, alongside Ghout Al-Sultan, Sonwan Academy, 5.1.1 Tactical Benghazi and the group's other companies.",
     context:
@@ -328,11 +328,11 @@ export const projects: Project[] = [
       "Countdown and store-category content series",
     ],
     gallery: [
-      { src: w("geant-libya/g1.webp"), w: 860, h: 860, alt: "Géant Libya general markets category post" },
-      { src: w("geant-libya/g2.webp"), w: 860, h: 860, alt: "Géant Libya hypermarket category post" },
-      { src: w("geant-libya/g3.webp"), w: 860, h: 452, alt: "Géant Libya countdown campaign banner" },
-      { src: w("geant-libya/g4.webp"), w: 860, h: 860, alt: "Géant Libya seasonal greeting artwork" },
-      { src: w("ghout-al-sultan/hero.webp"), w: 1125, h: 1125, alt: "Ghout Al-Sultan retail point campaign artwork" },
+      { src: w("geant-libya/g1.webp"), w: 1300, h: 1300, alt: "Géant Libya general markets category post" },
+      { src: w("geant-libya/g2.webp"), w: 1300, h: 1300, alt: "Géant Libya hypermarket category post" },
+      { src: w("geant-libya/g3.webp"), w: 1300, h: 683, alt: "Géant Libya countdown campaign banner" },
+      { src: w("geant-libya/g4.webp"), w: 1300, h: 1300, alt: "Géant Libya seasonal greeting artwork" },
+      { src: w("ghout-al-sultan/hero.webp"), w: 1687, h: 1687, alt: "Ghout Al-Sultan retail point campaign artwork" },
     ],
   },
   {
@@ -348,7 +348,7 @@ export const projects: Project[] = [
     accent: "#1E9CF0",
     summary:
       "Product-marketing visuals for a real-estate platform that has to speak to owners, agencies and buyers — each with a different reason to open the app.",
-    cover: { src: w("baitna/hero.webp"), w: 1180, h: 619, alt: "Baitna property app marketing visual with app store links" },
+    cover: { src: w("baitna/hero.webp"), w: 1900, h: 997, alt: "Baitna property app marketing visual with app store links" },
     overview:
       "Baitna is a real-estate platform with apps on both stores. The work covered the marketing and product visuals used to explain the platform to its three distinct audiences.",
     context:
@@ -363,11 +363,11 @@ export const projects: Project[] = [
       "App-store acquisition creative",
     ],
     gallery: [
-      { src: w("baitna/g1.webp"), w: 860, h: 860, alt: "Baitna campaign post aimed at property owners" },
-      { src: w("baitna/g5.webp"), w: 860, h: 860, alt: "Baitna campaign post aimed at home seekers" },
-      { src: w("baitna/g2.webp"), w: 860, h: 484, alt: "Baitna post covering what matters when buying property" },
-      { src: w("baitna/g3.webp"), w: 860, h: 484, alt: "Baitna listing and management interface visual" },
-      { src: w("baitna/g4.webp"), w: 860, h: 484, alt: "Baitna presence and listing quality visual" },
+      { src: w("baitna/g1.webp"), w: 1300, h: 1300, alt: "Baitna campaign post aimed at property owners" },
+      { src: w("baitna/g5.webp"), w: 1300, h: 1300, alt: "Baitna campaign post aimed at home seekers" },
+      { src: w("baitna/g2.webp"), w: 1300, h: 731, alt: "Baitna post covering what matters when buying property" },
+      { src: w("baitna/g3.webp"), w: 1300, h: 731, alt: "Baitna listing and management interface visual" },
+      { src: w("baitna/g4.webp"), w: 1300, h: 731, alt: "Baitna presence and listing quality visual" },
     ],
   },
   {
@@ -383,7 +383,7 @@ export const projects: Project[] = [
     accent: "#D9463C",
     summary:
       "Two and a half years across interface design, web development and graphic design — plus the agency's own voice, which had to be sharper than anything it shipped for clients.",
-    cover: { src: w("artisans/hero.webp"), w: 850, h: 850, alt: "Artisans Digital Agency brand campaign visual" },
+    cover: { src: w("artisans/hero.webp"), w: 1275, h: 1275, alt: "Artisans Digital Agency brand campaign visual" },
     overview:
       "I joined Artisans on a three-month internship and stayed on full-time. The work moved between UI/UX design, web design and development, and graphic design — often on the same project, and often for clients whose work was confidential.",
     context:
@@ -407,12 +407,12 @@ export const projects: Project[] = [
     reflection:
       "Three months was supposed to be the whole thing. Staying meant learning the parts of the process I'd otherwise only have seen from one side — which is most of why I can now take a project from mark to interface to campaign without handing it over.",
     gallery: [
-      { src: w("artisans/g6.webp"), w: 860, h: 860, alt: "Artisans agency brand post" },
-      { src: w("artisans/g5.webp"), w: 850, h: 850, alt: "APEX engineering stationery and identity application" },
-      { src: w("artisans/g1.webp"), w: 844, h: 844, alt: "Nama Tamweel financing website visual" },
-      { src: w("artisans/g2.webp"), w: 844, h: 844, alt: "Financing platform interface visual" },
-      { src: w("artisans/g3.webp"), w: 845, h: 845, alt: "College of Graduate Studies website visual" },
-      { src: w("artisans/g4.webp"), w: 844, h: 844, alt: "Sadeem Dental Co. application visual" },
+      { src: w("artisans/g6.webp"), w: 1300, h: 1300, alt: "Artisans agency brand post" },
+      { src: w("artisans/g5.webp"), w: 1275, h: 1275, alt: "APEX engineering stationery and identity application" },
+      { src: w("artisans/g1.webp"), w: 1266, h: 1266, alt: "Nama Tamweel financing website visual" },
+      { src: w("artisans/g2.webp"), w: 1265, h: 1265, alt: "Financing platform interface visual" },
+      { src: w("artisans/g3.webp"), w: 1267, h: 1267, alt: "College of Graduate Studies website visual" },
+      { src: w("artisans/g4.webp"), w: 1266, h: 1266, alt: "Sadeem Dental Co. application visual" },
     ],
   },
   {
@@ -428,7 +428,7 @@ export const projects: Project[] = [
     accent: "#E0245E",
     summary:
       "Campaign design for a game-trading platform — dark, neon, and written in the voice of the audience rather than about them.",
-    cover: { src: w("slinger-swap/hero.webp"), w: 1180, h: 664, alt: "Slinger Swap game trading campaign visual" },
+    cover: { src: w("slinger-swap/hero.webp"), w: 1900, h: 1069, alt: "Slinger Swap game trading campaign visual" },
     overview:
       "Slinger Swap lets players trade physical games instead of buying new ones. The campaign work had to make an unfamiliar mechanic feel obvious.",
     context:
@@ -443,9 +443,9 @@ export const projects: Project[] = [
       "Social-proof and community-voice campaign posts",
     ],
     gallery: [
-      { src: w("slinger-swap/g1.webp"), w: 860, h: 485, alt: "Slinger Swap console and title campaign visual" },
-      { src: w("slinger-swap/g2.webp"), w: 860, h: 484, alt: "Slinger Swap title-led promotional artwork" },
-      { src: w("slinger-swap/g3.webp"), w: 860, h: 484, alt: "Slinger Swap library trading campaign visual" },
+      { src: w("slinger-swap/g1.webp"), w: 1300, h: 734, alt: "Slinger Swap console and title campaign visual" },
+      { src: w("slinger-swap/g2.webp"), w: 1300, h: 731, alt: "Slinger Swap title-led promotional artwork" },
+      { src: w("slinger-swap/g3.webp"), w: 1300, h: 731, alt: "Slinger Swap library trading campaign visual" },
     ],
   },
 ];

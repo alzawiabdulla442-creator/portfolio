@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Capabilities, Experience, Contact } from "@/components/sections";
+import Image from "next/image";
 import { BrandPattern } from "@/components/pattern";
-import { Glyph } from "@/components/mark";
 import { SectionHead } from "@/components/bits";
 import { traveler, languages } from "@/lib/data";
 
@@ -94,10 +94,21 @@ export default function AboutPage() {
             </div>
 
             <div>
-              <div className="about-mark rv" style={{ aspectRatio: "1 / 1" }}>
+              <figure className="about-portrait rv">
                 <BrandPattern className="pat" />
-                <Glyph className="glyph" />
-              </div>
+                <Image
+                  src="/brand/portrait.webp"
+                  alt="Abdullah Alzawi"
+                  width={858}
+                  height={948}
+                  sizes="(max-width: 980px) 80vw, 40vw"
+                  quality={90}
+                  priority
+                />
+                <figcaption className="meta">
+                  <span className="meta-amber">◆</span> Abdullah Alzawi — Benghazi
+                </figcaption>
+              </figure>
 
               <div className="rv" style={{ marginTop: 28 }}>
                 <p className="meta" style={{ marginBottom: 12 }}>

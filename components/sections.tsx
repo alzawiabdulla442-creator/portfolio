@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { BrandPattern } from "./pattern";
 import { Glyph } from "./mark";
 import { Marquee, SectionHead, ArrowLink } from "./bits";
@@ -19,6 +20,18 @@ export function Hero() {
   return (
     <section className="hero">
       <BrandPattern className="hero-pattern" />
+
+      <div className="hero-obj" aria-hidden="true">
+        <span className="hero-obj-glow" />
+        <Image
+          src="/brand/mark-3d.webp"
+          alt=""
+          width={545}
+          height={553}
+          priority
+          sizes="(max-width: 900px) 40vw, 30vw"
+        />
+      </div>
 
       <div className="shell hero-inner">
         <div className="hero-top">
@@ -264,10 +277,20 @@ export function AboutBlock() {
             </div>
           </div>
 
-          <div className="about-mark rv">
+          <figure className="about-portrait rv">
             <BrandPattern className="pat" />
-            <Glyph className="glyph" />
-          </div>
+            <Image
+              src="/brand/portrait.webp"
+              alt="Abdullah Alzawi"
+              width={858}
+              height={948}
+              sizes="(max-width: 980px) 80vw, 40vw"
+              quality={90}
+            />
+            <figcaption className="meta">
+              <span className="meta-amber">◆</span> Abdullah Alzawi — Benghazi
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
