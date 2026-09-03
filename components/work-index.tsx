@@ -3,10 +3,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import type { Project } from "@/lib/data";
 
 export function WorkIndex({ projects }: { projects: Project[] }) {
   const [hover, setHover] = useState<number | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   const thumbRef = useRef<HTMLDivElement>(null);
   // hover kept in a ref as well, so the animation loop can read it without
@@ -63,26 +67,24 @@ export function WorkIndex({ projects }: { projects: Project[] }) {
 
   const active = hover !== null ? projects[hover] : null;
 
+  // Portalled onto <body>: position:fixed only tracks the viewport when no
+  // ancestor has a transform/filter/perspective. No inline `transform` either —
+  // React would rewrite it every render and undo the rAF positioning.
+  const preview = (
+    <div
+      ref={thumbRef}
+      className={`wrow-thumb ${hover !== null ? "show" : ""}`}
+      aria-hidden="true"
+    >
+      {active && (
+        <Image src={active.cover.src} alt="" width={340} height={238} sizes="340px" quality={74} />
+      )}
+    </div>
+  );
+
   return (
     <div className="windex">
-      {/* No inline `transform` here — React would rewrite it on every render and
-          snap the preview back to the top-left corner. The rAF loop owns it. */}
-      <div
-        ref={thumbRef}
-        className={`wrow-thumb ${hover !== null ? "show" : ""}`}
-        aria-hidden="true"
-      >
-        {active && (
-          <Image
-            src={active.cover.src}
-            alt=""
-            width={340}
-            height={238}
-            sizes="340px"
-            quality={74}
-          />
-        )}
-      </div>
+      {mounted && createPortal(preview, document.body)}
 
       {projects.map((p, i) => (
         <Link
