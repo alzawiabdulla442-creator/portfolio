@@ -4,26 +4,47 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Mark } from "./mark";
+import { rooms } from "@/lib/data";
 
-const links = [
-  { href: "/", label: "Index" },
-  { href: "/work", label: "Work" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
+const doors = rooms.map((r) => ({ href: `/#${r.id}`, numeral: r.numeral, name: r.name }));
+
+/** Local time in Benghazi — a small sign the site knows where it is. */
+function Clock() {
+  const [t, setT] = useState<string | null>(null);
+  useEffect(() => {
+    const tick = () =>
+      setT(
+        new Intl.DateTimeFormat("en-GB", {
+          timeZone: "Africa/Tripoli",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        }).format(new Date())
+      );
+    tick();
+    const id = setInterval(tick, 20000);
+    return () => clearInterval(id);
+  }, []);
+  if (!t) return <span className="clocktag" suppressHydrationWarning />;
+  return (
+    <span className="clocktag" suppressHydrationWarning>
+      Benghazi — {t}
+    </span>
+  );
+}
 
 export function Nav() {
   const path = usePathname();
   const [open, setOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
+  const [hide, setHide] = useState(false);
   const [solid, setSolid] = useState(false);
 
   useEffect(() => {
     let last = window.scrollY;
     const onScroll = () => {
       const y = window.scrollY;
-      setSolid(y > 40);
-      setHidden(y > 220 && y > last);
+      setSolid(y > 30);
+      setHide(y > 260 && y > last);
       last = y;
     };
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -31,10 +52,7 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setOpen(false);
-  }, [path]);
-
+  useEffect(() => setOpen(false), [path]);
   useEffect(() => {
     document.documentElement.style.overflow = open ? "hidden" : "";
     return () => {
@@ -44,56 +62,65 @@ export function Nav() {
 
   return (
     <>
-      <header className={`nav ${hidden && !open ? "nav-hidden" : ""} ${solid ? "nav-solid" : ""}`}>
-        <div className="nav-inner shell">
-          <Link href="/" className="nav-mark" aria-label="Abdullah Alzawi — home" data-cursor="Home">
+      <header className={`nav ${hide && !open ? "nav-hide" : ""} ${solid ? "nav-solid" : ""}`}>
+        <div className="nav-in shell">
+          <Link href="/" className="nav-mark" aria-label="Abdullah Alzawi — home" data-cur="Home">
             <Mark />
           </Link>
 
-          <nav className="nav-links" aria-label="Primary">
-            {links.map((l) => {
-              const active = l.href === "/" ? path === "/" : path.startsWith(l.href);
-              return (
-                <Link key={l.href} href={l.href} className={`nav-link ${active ? "is-active" : ""}`}>
-                  <span className="nav-link-i">{l.label}</span>
-                </Link>
-              );
-            })}
+          <nav className="nav-mid" aria-label="Rooms">
+            {doors.map((d) => (
+              <Link key={d.href} href={d.href} className="doorlink">
+                <em>{d.numeral}</em>
+                <b>{d.name}</b>
+              </Link>
+            ))}
+            <Link href="/work" className="doorlink">
+              <em>—</em>
+              <b>All work</b>
+            </Link>
           </nav>
 
-          <button
-            className="nav-toggle"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls="menu-panel"
-          >
-            <span className="meta">{open ? "Close" : "Menu"}</span>
-            <span className={`nav-burger ${open ? "is-open" : ""}`} aria-hidden="true">
+          <div className="nav-right">
+            <Clock />
+            <Link href="/contact" className="pill">
               <i />
-              <i />
-            </span>
-          </button>
+              Let&apos;s talk
+            </Link>
+            <button
+              className={`burger ${open ? "open" : ""}`}
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              aria-controls="sheet"
+              aria-label={open ? "Close menu" : "Open menu"}
+            >
+              <span />
+              <span />
+            </button>
+          </div>
         </div>
       </header>
 
-      <div id="menu-panel" className={`menu ${open ? "is-open" : ""}`} hidden={!open}>
-        <div className="menu-inner shell">
-          <p className="meta">Menu</p>
-          <ul className="menu-list">
-            {links.map((l, i) => (
-              <li key={l.href} style={{ ["--d" as string]: `${90 + i * 70}ms` }}>
-                <Link href={l.href}>
-                  <span className="menu-num meta">0{i + 1}</span>
-                  <span className="menu-label display">{l.label}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <div className="menu-foot">
-            <a className="ulink" href="mailto:alzawiabdulla449@gmail.com">
+      <div id="sheet" className={`sheet ${open ? "open" : ""}`} hidden={!open}>
+        <div className="sheet-in shell">
+          <p className="mono">Three rooms</p>
+          <ol>
+            {[...doors, { href: "/work", numeral: "—", name: "All work" }, { href: "/contact", numeral: "—", name: "Contact" }].map(
+              (d, i) => (
+                <li key={d.href} style={{ ["--d" as string]: `${80 + i * 65}ms` }}>
+                  <Link href={d.href}>
+                    <span className="mono mono-amber">{d.numeral}</span>
+                    <b>{d.name}</b>
+                  </Link>
+                </li>
+              )
+            )}
+          </ol>
+          <div className="sheet-foot">
+            <a className="ul" href="mailto:alzawiabdulla449@gmail.com">
               alzawiabdulla449@gmail.com
             </a>
-            <span className="meta">Benghazi, Libya</span>
+            <span className="mono">Benghazi, Libya</span>
           </div>
         </div>
       </div>

@@ -9,26 +9,6 @@ export function Arrow({ size = 13 }: { size?: number }) {
   );
 }
 
-export function SectionHead({
-  num,
-  title,
-  right,
-}: {
-  num: string;
-  title: string;
-  right?: ReactNode;
-}) {
-  return (
-    <div className="shead rv">
-      <div className="shead-title">
-        <span className="meta meta-amber">{num}</span>
-        <h2>{title}</h2>
-      </div>
-      {right}
-    </div>
-  );
-}
-
 export function ArrowLink({
   href,
   children,
@@ -46,13 +26,13 @@ export function ArrowLink({
   );
   if (external) {
     return (
-      <a className="arrowlink ulink" href={href} target="_blank" rel="noopener noreferrer">
+      <a className="arrow mono mono-ink ul" href={href} target="_blank" rel="noopener noreferrer">
         {inner}
       </a>
     );
   }
   return (
-    <Link className="arrowlink ulink" href={href}>
+    <Link className="arrow mono mono-ink ul" href={href}>
       {inner}
     </Link>
   );
@@ -67,13 +47,12 @@ export function Marquee({
   duration?: number;
   reverse?: boolean;
 }) {
-  // repeat until the strip is long enough to tile seamlessly at any viewport width
   const filled: string[] = [];
   while (filled.length < Math.max(10, items.length)) filled.push(...items);
   const set = (
     <>
       {filled.map((t, i) => (
-        <span className="ticker-item" key={i}>
+        <span className="mqitem" key={i}>
           <i>◆</i>
           {t}
         </span>
@@ -81,9 +60,9 @@ export function Marquee({
     </>
   );
   return (
-    <div className="marquee-mask" aria-hidden="true">
+    <div className="mq-mask" aria-hidden="true">
       <div
-        className={`marquee ${reverse ? "marquee-rev" : ""}`}
+        className={`mq ${reverse ? "mq-rev" : ""}`}
         style={{ ["--dur" as string]: `${duration}s` }}
       >
         {set}

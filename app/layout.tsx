@@ -1,13 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/fustat";
-import "@fontsource/instrument-serif/400.css";
-import "@fontsource/instrument-serif/400-italic.css";
+import "@fontsource/martian-mono/400.css";
+import "@fontsource/martian-mono/500.css";
+import "@fontsource/martian-mono/600.css";
 import "./globals.css";
 import "./ui.css";
 import { Nav } from "@/components/nav";
-import { Footer } from "@/components/footer";
-import { SmoothScroll, Cursor, RevealObserver } from "@/components/providers";
-import { PageTransition, ScrollProgress } from "@/components/transition";
+import { Footer } from "@/components/sections";
+import { SmoothScroll, Cursor, RevealObserver, SurfaceSync } from "@/components/providers";
 
 const SITE = "https://portfolio-site-two-zeta-98.vercel.app";
 
@@ -40,21 +40,21 @@ export const metadata: Metadata = {
     siteName: "Abdullah Alzawi",
     title: "Abdullah Alzawi — Brand, Digital & Marketing Design",
     description:
-      "Brand identity, UI/UX, web development and digital marketing — designed and built by one person across all three. Benghazi, Libya.",
+      "Brand studios draw the logo. Product teams build the interface. Agencies run the feed. I work in all three. Benghazi, Libya.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Abdullah Alzawi — Brand, Digital & Marketing Design",
     description:
-      "Brand identity, UI/UX, web development and digital marketing — designed and built by one person across all three.",
+      "Brand studios draw the logo. Product teams build the interface. Agencies run the feed. I work in all three.",
     creator: "@z3_vinci",
   },
   robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
-  colorScheme: "dark",
+  themeColor: "#f7f4ee",
+  colorScheme: "light",
 };
 
 const jsonLd = {
@@ -98,11 +98,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SmoothScroll />
         <Cursor />
         <RevealObserver />
-        <ScrollProgress />
+        <SurfaceSync />
         <Nav />
-        <main id="main">
-          <PageTransition>{children}</PageTransition>
-        </main>
+        <main id="main">{children}</main>
         <Footer />
       </body>
     </html>

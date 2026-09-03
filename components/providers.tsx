@@ -8,9 +8,8 @@ export function SmoothScroll() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const lenis = new Lenis({
-      duration: 1.1,
+      duration: 1.15,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      wheelMultiplier: 1,
       touchMultiplier: 1.6,
     });
 
@@ -22,13 +21,16 @@ export function SmoothScroll() {
     raf = requestAnimationFrame(loop);
 
     const onAnchor = (e: MouseEvent) => {
-      const el = (e.target as HTMLElement)?.closest?.('a[href^="#"]') as HTMLAnchorElement | null;
-      if (!el) return;
-      const id = el.getAttribute("href")!.slice(1);
-      const target = document.getElementById(id);
+      const a = (e.target as HTMLElement)?.closest?.("a") as HTMLAnchorElement | null;
+      if (!a) return;
+      const href = a.getAttribute("href") || "";
+      const hash = href.startsWith("#") ? href : href.startsWith("/#") ? href.slice(1) : "";
+      if (!hash) return;
+      const target = document.getElementById(hash.slice(1));
       if (!target) return;
       e.preventDefault();
-      lenis.scrollTo(target, { offset: -60 });
+      lenis.scrollTo(target, { offset: -70 });
+      history.replaceState(null, "", hash);
     };
     document.addEventListener("click", onAnchor);
 
@@ -47,20 +49,19 @@ export function Cursor() {
     if (window.matchMedia("(pointer: coarse)").matches) return;
 
     const el = document.createElement("div");
-    el.className = "cursor";
-    el.style.opacity = "0";
+    el.className = "cur";
     el.setAttribute("aria-hidden", "true");
-    el.innerHTML = '<div class="cursor-dot"></div><div class="cursor-label"></div>';
+    el.innerHTML = '<div class="cur-ring"></div><div class="cur-txt"></div>';
     document.body.appendChild(el);
-    const label = el.querySelector(".cursor-label") as HTMLElement;
+    const txt = el.querySelector(".cur-txt") as HTMLElement;
 
-    let x = window.innerWidth / 2;
-    let y = window.innerHeight / 2;
-    let cx = x;
-    let cy = y;
+    let x = 0;
+    let y = 0;
+    let cx = 0;
+    let cy = 0;
+    let seen = false;
     let raf = 0;
 
-    let seen = false;
     const move = (e: MouseEvent) => {
       x = e.clientX;
       y = e.clientY;
@@ -70,19 +71,14 @@ export function Cursor() {
         cy = y;
         el.style.opacity = "1";
       }
-      const t = (e.target as HTMLElement)?.closest?.("[data-cursor]") as HTMLElement | null;
-      if (t) {
-        el.dataset.active = "1";
-        label.textContent = t.dataset.cursor || "";
-      } else {
-        el.dataset.active = "0";
-        label.textContent = "";
-      }
+      const t = (e.target as HTMLElement)?.closest?.("[data-cur]") as HTMLElement | null;
+      el.dataset.on = t ? "1" : "0";
+      txt.textContent = t?.dataset.cur || "";
     };
 
     const tick = () => {
-      cx += (x - cx) * 0.18;
-      cy += (y - cy) * 0.18;
+      cx += (x - cx) * 0.2;
+      cy += (y - cy) * 0.2;
       el.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
       raf = requestAnimationFrame(tick);
     };
@@ -100,10 +96,10 @@ export function Cursor() {
   return null;
 }
 
-/** Adds `.in` to every `.rv`, `.imgmask` and `.clipwrap` once it enters the viewport. */
+/** Adds `.in` to reveal targets as they enter the viewport. */
 export function RevealObserver() {
   useEffect(() => {
-    const nodes = () =>
+    const pick = () =>
       Array.from(document.querySelectorAll<HTMLElement>(".rv, .imgmask, .clipwrap")).filter(
         (n) => !n.classList.contains("in")
       );
@@ -117,12 +113,11 @@ export function RevealObserver() {
           }
         }
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+      { rootMargin: "0px 0px -6% 0px", threshold: 0.07 }
     );
 
-    nodes().forEach((n) => io.observe(n));
-
-    const mo = new MutationObserver(() => nodes().forEach((n) => io.observe(n)));
+    pick().forEach((n) => io.observe(n));
+    const mo = new MutationObserver(() => pick().forEach((n) => io.observe(n)));
     mo.observe(document.body, { childList: true, subtree: true });
 
     return () => {
@@ -131,5 +126,34 @@ export function RevealObserver() {
     };
   }, []);
 
+  return null;
+}
+
+/**
+ * Paints the browser chrome / overscroll to match whichever surface is on screen,
+ * so the light rooms and the ink thresholds never show a mismatched edge.
+ */
+export function SurfaceSync() {
+  useEffect(() => {
+    const marks = () => Array.from(document.querySelectorAll<HTMLElement>("[data-surface]"));
+    const apply = () => {
+      const mid = window.innerHeight / 2;
+      let current = "paper";
+      for (const m of marks()) {
+        const r = m.getBoundingClientRect();
+        if (r.top <= mid && r.bottom >= mid) current = m.dataset.surface || "paper";
+      }
+      document.body.dataset.surface = current;
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute("content", current === "ink" ? "#0e0d0b" : "#f7f4ee");
+    };
+    apply();
+    window.addEventListener("scroll", apply, { passive: true });
+    window.addEventListener("resize", apply);
+    return () => {
+      window.removeEventListener("scroll", apply);
+      window.removeEventListener("resize", apply);
+    };
+  }, []);
   return null;
 }

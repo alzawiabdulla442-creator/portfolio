@@ -10,6 +10,7 @@ export type Project = {
   client: string;
   disciplines: string[];
   categories: string[];
+  room: "brand" | "digital" | "marketing";
   summary: string;
   accent: string;
   cover: Img;
@@ -30,6 +31,7 @@ const w = (p: string) => `/work/${p}`;
 export const projects: Project[] = [
   {
     slug: "padel-gulf",
+    room: "brand",
     index: "01",
     title: "Padel Gulf",
     subtitle: "Identity system and a full season of match-day campaign design",
@@ -90,6 +92,7 @@ export const projects: Project[] = [
   },
   {
     slug: "geotechnica",
+    room: "brand",
     index: "02",
     title: "Geotechnica",
     subtitle: "A drilling rig hidden inside a letterform",
@@ -148,6 +151,7 @@ export const projects: Project[] = [
   },
   {
     slug: "leyan-boutique",
+    room: "brand",
     index: "03",
     title: "Leyan Boutique",
     subtitle: "Heritage dress, drawn as a contemporary mark",
@@ -201,6 +205,7 @@ export const projects: Project[] = [
   },
   {
     slug: "sala-sony",
+    room: "brand",
     index: "04",
     title: "Sala Sony",
     subtitle: "A gaming hall that had to look like the thing it sells",
@@ -253,6 +258,7 @@ export const projects: Project[] = [
   },
   {
     slug: "senwan-gardens",
+    room: "marketing",
     index: "05",
     title: "Senwan Gardens",
     subtitle: "Selling a place that doesn't exist yet",
@@ -297,6 +303,7 @@ export const projects: Project[] = [
   },
   {
     slug: "geant-libya",
+    room: "marketing",
     index: "06",
     title: "Géant Libya",
     subtitle: "Retail, at retail speed",
@@ -337,6 +344,7 @@ export const projects: Project[] = [
   },
   {
     slug: "baitna",
+    room: "digital",
     index: "07",
     title: "Baitna",
     subtitle: "Marketing a property platform to two audiences at once",
@@ -372,6 +380,7 @@ export const projects: Project[] = [
   },
   {
     slug: "artisans",
+    room: "digital",
     index: "08",
     title: "Artisans Digital Agency",
     subtitle: "Agency voice, and the client work underneath it",
@@ -417,6 +426,7 @@ export const projects: Project[] = [
   },
   {
     slug: "slinger-swap",
+    room: "marketing",
     index: "09",
     title: "Slinger Swap",
     subtitle: "A campaign built on the sentence gamers already say",
@@ -548,3 +558,61 @@ export const languages = [
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
 export const projectSlugs = projects.map((p) => p.slug);
+
+
+export type RoomId = "brand" | "digital" | "marketing";
+
+export const rooms: {
+  id: RoomId;
+  numeral: string;
+  index: string;
+  name: string;
+  line: string;
+  body: string;
+  doing: string[];
+}[] = [
+  {
+    id: "brand",
+    numeral: "I",
+    index: "01",
+    name: "Brand",
+    line: "Where the mark gets drawn.",
+    body:
+      "Identity systems built to survive the handover \u2014 a corrected mark, the variations it actually needs, a pattern derived from the thing itself, and a book that keeps it all consistent once I am no longer in the room.",
+    doing: [
+      "Brand Identity",
+      "Logo Design & Refinement",
+      "Brand Guidelines",
+      "Brand Patterns & Systems",
+      "Visual Direction",
+    ],
+  },
+  {
+    id: "digital",
+    numeral: "II",
+    index: "02",
+    name: "Digital",
+    line: "Where it becomes something you can use.",
+    body:
+      "Interface design and front-end build for web and mobile. The engineering background is the point: I design what can actually ship, and when it needs building I can build it rather than hand it over and hope.",
+    doing: ["UI/UX Design", "Web Design", "Web Development", "WordPress", "Programming"],
+  },
+  {
+    id: "marketing",
+    numeral: "III",
+    index: "03",
+    name: "Marketing",
+    line: "Where people finally see it.",
+    body:
+      "Content plans, campaign coordination and social output at retail speed \u2014 several brands running in parallel on one calendar, each keeping its own voice. A brand nobody sees is a folder of nice files.",
+    doing: [
+      "Social Media Management",
+      "Digital Marketing",
+      "Content Planning",
+      "Campaign Coordination",
+      "Market Research",
+    ],
+  },
+];
+
+export const byRoom = (id: RoomId) => projects.filter((p) => p.room === id);
