@@ -18,8 +18,11 @@
   transform: translateY(-102%);
 }
 .nav-solid {
-  background: color-mix(in srgb, var(--ink) 78%, transparent);
-  backdrop-filter: blur(14px) saturate(1.2);
+  background: color-mix(in srgb, var(--ink) 86%, transparent);
+  /* Cheaper blur, no saturate pass: the backdrop behind a full-width fixed bar
+     gets re-filtered on every scroll frame. */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-bottom-color: rgba(244, 241, 234, 0.1);
 }
 .nav-inner {

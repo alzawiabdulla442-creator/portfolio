@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Mark } from "./mark";
+import { smooth } from "./providers";
 
 const links = [
   { href: "/", label: "Index" },
@@ -88,8 +89,13 @@ export function Nav() {
   }, [path]);
 
   useEffect(() => {
+    // Lenis keeps its own scroll position, so locking overflow alone let the
+    // page jump when the menu closed. Pause the instance as well.
+    if (open) smooth.current?.stop();
+    else smooth.current?.start();
     document.documentElement.style.overflow = open ? "hidden" : "";
     return () => {
+      smooth.current?.start();
       document.documentElement.style.overflow = "";
     };
   }, [open]);

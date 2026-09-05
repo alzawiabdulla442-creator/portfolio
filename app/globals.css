@@ -52,7 +52,9 @@
 
 html {
   -webkit-text-size-adjust: 100%;
-  scroll-behavior: smooth;
+  /* No native smooth scrolling: it fights Lenis (and Lenis' own scrollTo),
+     which showed up as the page fighting itself on anchor jumps. */
+  scroll-behavior: auto;
 }
 
 html.lenis,
@@ -75,8 +77,7 @@ body {
   font-synthesis-weight: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
 img,
@@ -278,8 +279,11 @@ button {
   left: 0;
   z-index: 300;
   pointer-events: none;
-  mix-blend-mode: difference;
+  /* No mix-blend-mode: a blended fixed overlay forces the entire page beneath
+     it to re-rasterize on every scroll frame. The dot flips colour per section
+     instead (see [data-paper]), which reads the same and costs nothing. */
   will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 .cursor-dot {
   width: 10px;
@@ -296,6 +300,12 @@ button {
   width: 62px;
   height: 62px;
   margin: -31px 0 0 -31px;
+}
+.cursor[data-paper="1"] .cursor-dot {
+  background: var(--ink);
+}
+.cursor[data-paper="1"] .cursor-label {
+  color: var(--paper);
 }
 .cursor-label {
   position: absolute;
@@ -351,7 +361,12 @@ button {
 .grain::after {
   content: "";
   position: fixed;
-  inset: -50%;
+  /* Was inset:-50% - four times the viewport area repainted on every step of
+     the animation. The keyframes only move it by 2%. */
+  inset: -4%;
+  will-change: transform;
+  contain: paint;
+  backface-visibility: hidden;
   pointer-events: none;
   z-index: 400;
   opacity: 0.032;
