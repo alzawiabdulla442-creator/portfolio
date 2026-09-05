@@ -78,6 +78,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: clip;
+  text-rendering: optimizeLegibility;
 }
 
 img,
@@ -279,11 +280,8 @@ button {
   left: 0;
   z-index: 300;
   pointer-events: none;
-  /* No mix-blend-mode: a blended fixed overlay forces the entire page beneath
-     it to re-rasterize on every scroll frame. The dot flips colour per section
-     instead (see [data-paper]), which reads the same and costs nothing. */
+  mix-blend-mode: difference;
   will-change: transform;
-  transform: translate3d(0, 0, 0);
 }
 .cursor-dot {
   width: 10px;
@@ -300,12 +298,6 @@ button {
   width: 62px;
   height: 62px;
   margin: -31px 0 0 -31px;
-}
-.cursor[data-paper="1"] .cursor-dot {
-  background: var(--ink);
-}
-.cursor[data-paper="1"] .cursor-label {
-  color: var(--paper);
 }
 .cursor-label {
   position: absolute;

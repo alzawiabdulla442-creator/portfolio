@@ -15,18 +15,44 @@ export function SmoothScroll() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const lenis = new Lenis({
-      // A lerp reads more naturally than a fixed duration: each wheel tick eases
-      // toward the target instead of restarting a 1.1s animation mid-flight,
-      // which is what made fast or repeated scrolls feel like they stuttered.
-      lerp: 0.095,
-      smoothWheel: true,
-      // Native momentum on touch devices. Synthesised touch scrolling is the
-      // single biggest source of stutter on phones and trackpad-like surfaces.
+      lerp: 0.18,
+      // Starts off. Trackpads and precision surfaces already carry the OS's own
+      // momentum, so smoothing them stacks inertia on inertia - measured on the
+      // old settings, roughly half of a gesture's distance arrived up to a
+      // second after the fingers lifted. Notched mouse wheels have no momentum
+      // of their own and are what Lenis is actually for, so smoothing switches
+      // on only once we have seen one.
+      smoothWheel: false,
       syncTouch: false,
       wheelMultiplier: 1,
       autoRaf: false,
     });
     smooth.current = lenis;
+
+    let coarseStreak = 0;
+    const classifyInput = (e: WheelEvent) => {
+      let coarse = false;
+      if (e.deltaMode !== 0) {
+        // Line and page deltas only ever come from a real wheel.
+        coarse = true;
+      } else {
+        const wd = (e as WheelEvent & { wheelDeltaY?: number }).wheelDeltaY;
+        if (typeof wd === "number" && wd !== 0) {
+          // Chrome and Safari report clean multiples of 120 for a notched
+          // wheel and fine-grained values for a trackpad.
+          coarse = Math.abs(wd) % 120 === 0;
+        } else {
+          coarse = Number.isInteger(e.deltaY) && Math.abs(e.deltaY) >= 100;
+        }
+      }
+
+      // One stray 120-multiple from a trackpad should not flip the mode, but a
+      // single fine event is proof enough to flip it back.
+      coarseStreak = coarse ? Math.min(coarseStreak + 1, 3) : 0;
+      const want = coarseStreak >= 2;
+      if (lenis.options.smoothWheel !== want) lenis.options.smoothWheel = want;
+    };
+    window.addEventListener("wheel", classifyInput, { passive: true, capture: true });
 
     let raf = 0;
     const loop = (time: number) => {
@@ -50,6 +76,7 @@ export function SmoothScroll() {
     document.addEventListener("click", onAnchor);
 
     return () => {
+      window.removeEventListener("wheel", classifyInput, { capture: true });
       document.removeEventListener("click", onAnchor);
       cancelAnimationFrame(raf);
       lenis.destroy();
@@ -124,13 +151,9 @@ export function Cursor() {
         cy = y;
         el.style.opacity = "1";
       }
-      const tgt = e.target as HTMLElement | null;
-      const t = tgt?.closest?.("[data-cursor]") as HTMLElement | null;
+      const t = (e.target as HTMLElement)?.closest?.("[data-cursor]") as HTMLElement | null;
       const next = t ? t.dataset.cursor || "" : "";
       const active = t ? "1" : "0";
-      // Replaces mix-blend-mode: flip the dot to ink over light sections.
-      const paper = tgt?.closest?.(".on-paper") ? "1" : "0";
-      if (el.dataset.paper !== paper) el.dataset.paper = paper;
       // Only touch the DOM when something actually changed. This node sits
       // inside RevealObserver's MutationObserver, so a blind write on every
       // mousemove cost a full-document query per frame while scrolling.
