@@ -1,5 +1,9 @@
 export type Img = { src: string; w: number; h: number; alt: string };
 
+// A client project folded into a larger engagement, so the merged case study
+// can still tell each one's story instead of flattening them into one paragraph.
+export type Strand = { name: string; kind: string; body: string };
+
 export type Project = {
   slug: string;
   index: string;
@@ -8,6 +12,7 @@ export type Project = {
   year: string;
   role: string;
   client: string;
+  rights?: string;
   disciplines: string[];
   categories: string[];
   summary: string;
@@ -18,6 +23,7 @@ export type Project = {
   challenge?: string;
   approach?: string;
   process?: string[];
+  strands?: Strand[];
   outcome?: string[];
   reflection?: string;
   palette?: { hex: string; name: string }[];
@@ -335,11 +341,84 @@ export const projects: Project[] = [
       { src: w("ghout-al-sultan/hero.webp"), w: 1687, h: 1687, alt: "Ghout Al-Sultan retail point campaign artwork" },
     ],
   },
+  {
+    slug: "artisans",
+    index: "07",
+    title: "Artisans Digital Agency",
+    subtitle: "Agency voice, and the client work underneath it",
+    year: "2023 — 2026",
+    role: "UI/UX Designer · Web Developer · Graphic Designer",
+    client: "Artisans Digital Agency — Benghazi",
+    rights: "All rights reserved to Artisans Agency",
+    disciplines: ["UI/UX Design", "Web Development", "Graphic Design", "Digital Marketing"],
+    categories: ["UI/UX", "Web Development", "Graphic Design", "Digital Marketing"],
+    accent: "#D9463C",
+    summary:
+      "Two and a half years across interface design, web development and graphic design — the agency's own voice, which had to be sharper than anything it shipped for clients, and the client campaigns that ran underneath it.",
+    cover: { src: w("artisans/hero.webp"), w: 1275, h: 1275, alt: "Artisans Digital Agency brand campaign visual" },
+    overview:
+      "I joined Artisans on a three-month internship and stayed on full-time. The work moved between UI/UX design, web design and development, and graphic design — often on the same project, and often for clients whose work was confidential. Two of those clients can be shown here: Baitna, a real-estate platform, and Slinger Swap, a game-trading service.",
+    context:
+      "A small agency doesn't have the luxury of narrow roles. The same person who designs the interface frequently builds it and then designs the campaign that launches it.",
+    challenge:
+      "Move between disciplines without the quality dropping at the seams — and keep the agency's own presence credible while doing it.",
+    approach:
+      "Working across the whole chain turned out to be the advantage rather than the compromise. Knowing what the front end would actually do changed how I drew the interface; knowing the interface changed how I designed the campaign around it. I also relied heavily on research and modern AI tooling to compress the parts of the work that don't need a designer's judgement.",
+    process: [
+      "Designed digital interfaces and experiences for web and mobile application projects",
+      "Collaborated with cross-functional teams through design and development phases",
+      "Worked on confidential client projects requiring research, adaptability and problem solving",
+      "Used Figma, Affinity and WordPress across design and build",
+      "Explored digital and AI tooling to improve workflow and project outcomes",
+    ],
+    strands: [
+      {
+        name: "Baitna",
+        kind: "Property platform — 2025",
+        body:
+          "A real-estate platform with apps on both stores, and three audiences who open it for different reasons: owners need listing to look easy, agencies need it to look like growth, buyers need the inventory to look real. A marketplace only works if both sides show up, so one blue-to-cyan ground and one typographic frame carry all three audiences in Arabic. What changes between them is the evidence — 3D property iconography for owners, workplace illustration for agencies, and real interface screens for buyers.",
+      },
+      {
+        name: "Slinger Swap",
+        kind: "Game trading — 2025",
+        body:
+          "A platform that formalises something players already did informally: swapping physical discs through group chats and comment threads. The campaign's job was to point at the existing behaviour rather than explain a new mechanic. Real catalogue covers do the recognition work, a magenta-into-deep-navy gradient does the atmosphere, and the copy is written in the register of the audience — the question a player would actually ask before they'd consider trading.",
+      },
+    ],
+    outcome: [
+      "Client work spanning engineering, dental supply, finance, education and e-commerce",
+      "Web and mobile interface design carried through to build",
+      "Agency brand and campaign material",
+      "Audience-segmented campaign sets for Baitna's owners, agencies and buyers",
+      "App-store acquisition creative built on real interface screens",
+      "Title-led campaign artwork for Slinger Swap using real catalogue covers",
+    ],
+    reflection:
+      "Three months was supposed to be the whole thing. Staying meant learning the parts of the process I'd otherwise only have seen from one side — which is most of why I can now take a project from mark to interface to campaign without handing it over.",
+    gallery: [
+      { src: w("artisans/g6.webp"), w: 1300, h: 1300, alt: "Artisans agency brand post" },
+      { src: w("artisans/g5.webp"), w: 1275, h: 1275, alt: "APEX engineering stationery and identity application" },
+      { src: w("artisans/g1.webp"), w: 1266, h: 1266, alt: "Nama Tamweel financing website visual" },
+      { src: w("artisans/g2.webp"), w: 1265, h: 1265, alt: "Financing platform interface visual" },
+      { src: w("artisans/g3.webp"), w: 1267, h: 1267, alt: "College of Graduate Studies website visual" },
+      { src: w("artisans/g4.webp"), w: 1266, h: 1266, alt: "Sadeem Dental Co. application visual" },
+      { src: w("baitna/hero.webp"), w: 1900, h: 997, alt: "Baitna property app marketing visual with app store links" },
+      { src: w("baitna/g1.webp"), w: 1300, h: 1300, alt: "Baitna campaign post aimed at property owners" },
+      { src: w("baitna/g5.webp"), w: 1300, h: 1300, alt: "Baitna campaign post aimed at home seekers" },
+      { src: w("baitna/g2.webp"), w: 1300, h: 731, alt: "Baitna post covering what matters when buying property" },
+      { src: w("baitna/g3.webp"), w: 1300, h: 731, alt: "Baitna listing and management interface visual" },
+      { src: w("baitna/g4.webp"), w: 1300, h: 731, alt: "Baitna presence and listing quality visual" },
+      { src: w("slinger-swap/hero.webp"), w: 1900, h: 1069, alt: "Slinger Swap game trading campaign visual" },
+      { src: w("slinger-swap/g1.webp"), w: 1300, h: 734, alt: "Slinger Swap console and title campaign visual" },
+      { src: w("slinger-swap/g2.webp"), w: 1300, h: 731, alt: "Slinger Swap title-led promotional artwork" },
+      { src: w("slinger-swap/g3.webp"), w: 1300, h: 731, alt: "Slinger Swap library trading campaign visual" },
+    ],
+  },
 ];
 
 export const traveler = {
   slug: "traveler",
-  index: "07",
+  index: "08",
   title: "Traveler",
   year: "2025",
   role: "Developer",

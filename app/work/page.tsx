@@ -7,7 +7,7 @@ import { Marquee } from "@/components/bits";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Selected brand identity, UI/UX, web development, graphic design and digital marketing projects by Abdullah Alzawi — Padel Gulf, Geotechnica, Leyan Boutique, Sala Sony, Senwan Gardens, Géant Libya and more.",
+    "Selected brand identity, UI/UX, web development, graphic design and digital marketing projects by Abdullah Alzawi — Padel Gulf, Geotechnica, Leyan Boutique, Sala Sony, Senwan Gardens, Géant Libya, Artisans Digital Agency and more.",
   alternates: { canonical: "/work" },
 };
 

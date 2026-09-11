@@ -101,6 +101,12 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
                 <span className="meta">Disciplines</span>
                 <b>{p.disciplines.join(", ")}</b>
               </div>
+              {p.rights && (
+                <div className="cs-meta-cell">
+                  <span className="meta">Rights</span>
+                  <b>{p.rights}</b>
+                </div>
+              )}
             </div>
           </div>
         </header>
@@ -175,6 +181,22 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
                       </li>
                     ))}
                   </ul>
+                </div>
+              )}
+              {p.strands && (
+                <div className="cs-block rv">
+                  <h3>Client work</h3>
+                  <div className="strands">
+                    {p.strands.map((s) => (
+                      <div className="strand" key={s.name}>
+                        <div className="strand-head">
+                          <h4>{s.name}</h4>
+                          <span className="meta">{s.kind}</span>
+                        </div>
+                        <p>{s.body}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
