@@ -446,14 +446,19 @@
   color: var(--ash);
   transition: color 0.4s var(--ease);
 }
+.wrow-head {
+  transition: transform 0.6s var(--ease);
+  transform-origin: left;
+}
 .wrow-title {
+  /* inline, so a credit chip tucks in after the last word rather than
+     claiming a line of its own when a long title wraps */
+  display: inline;
   font-size: clamp(1.9rem, 5.2vw, 4.2rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  transition: transform 0.6s var(--ease);
-  transform-origin: left;
 }
 .wrow-sub {
   grid-column: 2;
@@ -479,6 +484,21 @@
   border-radius: 999px;
   padding: 5px 11px;
   color: var(--ash);
+}
+/* Work shown by permission rather than owned — the credit travels with the
+   title so it is read on the index, not only once the case study is open. */
+.tag-rights {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: clamp(12px, 1.4vw, 24px);
+  color: color-mix(in srgb, var(--ash) 82%, transparent);
+  border-color: var(--line);
+  white-space: nowrap;
+}
+/* inside the card's pill row it is one chip among many, not a title suffix */
+.wrow-tags .tag-rights {
+  margin-left: 0;
+  vertical-align: baseline;
 }
 .wrow-year {
   position: absolute;
@@ -1465,7 +1485,7 @@
     z-index: 90;
     box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
   }
-  .wrow:hover .wrow-title {
+  .wrow:hover .wrow-head {
     transform: translateX(6px);
   }
 }

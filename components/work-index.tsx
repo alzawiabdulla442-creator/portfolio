@@ -97,7 +97,10 @@ export function WorkIndex({ projects }: { projects: Project[] }) {
         >
           <div className="wrow-in">
             <span className="wrow-num">{p.index}</span>
-            <h3 className="wrow-title">{p.title}</h3>
+            <div className="wrow-head">
+              <h3 className="wrow-title">{p.title}</h3>
+              {p.credit && <span className="tag tag-rights">{p.credit}</span>}
+            </div>
             <p className="wrow-sub">{p.subtitle}</p>
             <div className="wrow-tags">
               {p.categories.map((c) => (
@@ -136,6 +139,7 @@ export function WorkIndex({ projects }: { projects: Project[] }) {
                   {c}
                 </span>
               ))}
+              {p.credit && <span className="tag tag-rights">{p.credit}</span>}
             </div>
           </Link>
         ))}

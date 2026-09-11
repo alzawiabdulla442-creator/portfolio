@@ -12,7 +12,10 @@ export type Project = {
   year: string;
   role: string;
   client: string;
+  // `rights` is the full line for the case study; `credit` is the compact form
+  // that has to sit beside a 4rem title on the index without wrapping.
   rights?: string;
+  credit?: string;
   disciplines: string[];
   categories: string[];
   summary: string;
@@ -350,6 +353,7 @@ export const projects: Project[] = [
     role: "UI/UX Designer · Web Developer · Graphic Designer",
     client: "Artisans Digital Agency — Benghazi",
     rights: "All rights reserved to Artisans Agency",
+    credit: "© Artisans Agency",
     disciplines: ["UI/UX Design", "Web Development", "Graphic Design", "Digital Marketing"],
     categories: ["UI/UX", "Web Development", "Graphic Design", "Digital Marketing"],
     accent: "#D9463C",
