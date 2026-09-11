@@ -62,7 +62,7 @@ const jsonLd = {
   name: "Abdullah Alzawi",
   alternateName: "Abdulla Muftah Abdulla Salem Alzawi",
   url: SITE,
-  email: "mailto:alzawiabdulla449@gmail.com",
+  email: "mailto:alzawiabdulla442@gmail.com",
   telephone: "+218921604875",
   jobTitle: "Social Media & Digital Marketing Manager",
   address: { "@type": "PostalAddress", addressLocality: "Benghazi", addressCountry: "LY" },

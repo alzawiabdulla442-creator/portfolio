@@ -12,8 +12,9 @@ export type Project = {
   year: string;
   role: string;
   client: string;
-  // `rights` is the full line for the case study; `credit` is the compact form
-  // that has to sit beside a 4rem title on the index without wrapping.
+  // `rights` is the full ownership line, shown only on the case study.
+  // `credit` is how the engagement reads on the index — it has to sit beside a
+  // 4rem title without wrapping, so it stays short.
   rights?: string;
   credit?: string;
   disciplines: string[];
@@ -45,6 +46,7 @@ export const projects: Project[] = [
     year: "2026",
     role: "Brand Designer · Campaign Designer",
     client: "Padel Gulf — Benghazi",
+    credit: "Freelance",
     disciplines: ["Brand Identity", "Brand Guidelines", "Campaign Design", "Social Media"],
     categories: ["Branding", "Social Media"],
     accent: "#F38222",
@@ -105,6 +107,7 @@ export const projects: Project[] = [
     year: "2026",
     role: "Brand Designer",
     client: "Geotechnica — Soil Investigation & Deep Foundations",
+    credit: "Freelance",
     disciplines: ["Brand Identity", "Brand Guidelines", "Visual Direction"],
     categories: ["Branding"],
     accent: "#DC1419",
@@ -163,6 +166,7 @@ export const projects: Project[] = [
     year: "2026",
     role: "Brand Designer",
     client: "Leyan Boutique — Cultural Clothing",
+    credit: "Freelance",
     disciplines: ["Brand Identity", "Brand Guidelines", "Pattern Design"],
     categories: ["Branding"],
     accent: "#64329A",
@@ -216,6 +220,7 @@ export const projects: Project[] = [
     year: "2026",
     role: "Brand Designer",
     client: "Sala Sony — PlayStation Hall",
+    credit: "Freelance",
     disciplines: ["Brand Identity", "Brand Guidelines", "App Icon"],
     categories: ["Branding"],
     accent: "#FE010C",
@@ -268,6 +273,7 @@ export const projects: Project[] = [
     year: "2026",
     role: "Social Media & Digital Marketing Manager",
     client: "Sonwan Holding Group — Real Estate Investment",
+    credit: "Freelance",
     disciplines: ["Digital Marketing", "Social Media", "Content Planning", "Campaign Coordination"],
     categories: ["Digital Marketing", "Social Media"],
     accent: "#1F4D3D",
@@ -312,6 +318,7 @@ export const projects: Project[] = [
     year: "2026",
     role: "Social Media & Digital Marketing Manager",
     client: "Sonwan Holding Group — Géant Libya",
+    credit: "Freelance",
     disciplines: ["Digital Marketing", "Social Media", "Content Planning"],
     categories: ["Digital Marketing", "Social Media"],
     accent: "#E4032E",
@@ -498,7 +505,7 @@ export const education = {
 };
 
 export const contact = {
-  email: "alzawiabdulla449@gmail.com",
+  email: "alzawiabdulla442@gmail.com",
   phone: "+218 92 160 4875",
   phoneHref: "+218921604875",
   location: "Benghazi, Libya",

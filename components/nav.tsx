@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Mark } from "./mark";
+import { contact } from "@/lib/data";
 import { smooth } from "./providers";
 
 const links = [
@@ -165,8 +166,8 @@ export function Nav() {
             ))}
           </ul>
           <div className="menu-foot">
-            <a className="ulink" href="mailto:alzawiabdulla449@gmail.com">
-              alzawiabdulla449@gmail.com
+            <a className="ulink" href={`mailto:${contact.email}`}>
+              {contact.email}
             </a>
             <span className="meta">Benghazi, Libya</span>
           </div>
