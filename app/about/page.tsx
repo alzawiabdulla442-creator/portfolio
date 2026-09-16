@@ -60,6 +60,12 @@ export default function AboutPage() {
               </p>
 
               <p className="body rv" style={{ marginTop: 16 }}>
+                Since 2026 I&apos;ve been a graphic designer at Frame Agency, working across the
+                studio&apos;s client accounts — campaign systems in Arabic for an LED advertising
+                company and a dental centre, among others.
+              </p>
+
+              <p className="body rv" style={{ marginTop: 16 }}>
                 Alongside the employed work I build brand identities end to end — logo, guidelines,
                 pattern, typography, applications and the brand book that keeps it all consistent
                 after I hand it over. Padel Gulf, Geotechnica, Leyan Boutique and Sala Sony are the

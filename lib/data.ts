@@ -352,8 +352,143 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "artisans",
+    slug: "frame-agency",
     index: "07",
+    title: "Frame Agency",
+    subtitle: "A screen company and a dental centre, in the same week",
+    year: "2026",
+    role: "Graphic Designer",
+    client: "Frame Agency — Benghazi",
+    rights: "All rights reserved to Frame Agency",
+    credit: "© Frame Agency",
+    disciplines: ["Campaign Design", "Social Media", "Graphic Design"],
+    categories: ["Graphic Design", "Social Media"],
+    accent: "#9050F0",
+    summary:
+      "Client campaign design at a Benghazi studio — an advertising company that sells LED screens, and a dental centre that sells calm. Two systems built far enough apart that neither leaks into the other.",
+    cover: { src: w("united-frames/hero.webp"), w: 1080, h: 1350, alt: "United Frames campaign post imagining its screens as an 80s billboard" },
+    overview:
+      "Frame Agency is a studio in Benghazi; this is the client work I designed there. Two of the accounts can be shown: United Frames, which builds, rents and maintains LED advertising screens, and Alasri, a dental and oral surgery centre. All of it is campaign design — work that has to land in a feed, in Arabic, and still read as the brand it belongs to.",
+    context:
+      "Agency work means holding unrelated audiences in your head on the same calendar. United Frames sells to a business owner deciding where an advertising budget goes. Alasri talks to a family deciding where to take a child with toothache. Nothing about the two should look alike.",
+    challenge:
+      "Build two campaign systems that stay recognisable week to week and stay completely distinct from each other — without either drifting into the generic Arabic social template they sit next to in the feed.",
+    approach:
+      "In both cases the system came before the posts. For United Frames the angled panel from the brand mark became a drifting background motif, the ground went to near-black with one saturated accent per series, and every headline was set with the kashida stretched so the Arabic carries as display type rather than as caption. For Alasri the same discipline points the other way: organic shapes cut from the brand blue, a tooth silhouette that recurs without ever being explained, and enough cream space around it that a clinic still feels like a clinic.",
+    process: [
+      "Built a repeatable post frame per client, then produced against it",
+      "Set Arabic display typography with stretched kashida so headlines carry as image, not caption",
+      "Composited product, architectural and 3D imagery into each scene",
+      "Designed multi-slide carousels — an educational sequence and a three-step purchase explainer",
+      "Adapted both systems to national occasions without breaking either frame",
+    ],
+    strands: [
+      {
+        name: "United Frames",
+        kind: "LED advertising screens — 2026",
+        body:
+          "A company whose product is a screen has a particular problem: its own advertising has to prove the thing it sells. The system answers by staging the screens in place — on a tower block, on a minaret, over a shop counter, inside a clinic reception — so each post is a demonstration rather than a claim. Around that, a violet-on-black frame with the brand's angled panel drifting through the background, and two carousels doing the persuasion: four facts arguing that a screen is a medium and not a cost, and a three-step explainer that ends with leaving the rest to them. The strongest piece in the set is the one selling nothing at all — the company's own screens reimagined as an 80s billboard, painted with period Libyan soft-drink bottles.",
+      },
+      {
+        name: "Alasri",
+        kind: "Dental centre — 2026",
+        body:
+          "Dentistry advertises to people who would rather not think about dentistry, so the system is built to lower the temperature. A soft blue and cream ground, organic shapes borrowed from the curve of the brand's tooth mark, and a lot of air. The content moves between registers without changing the frame — children's dentistry shot warm and playful, late-night emergency hours shot at the actual building after dark, a Friday greeting, a Martyr's Day piece in sepia. The mark sits in the same corner every time, which is most of what makes a small feed feel established.",
+      },
+    ],
+    outcome: [
+      "A campaign system for United Frames spanning education, sales explainer, in-situ product staging and national occasions",
+      "Two multi-slide carousels built to be read in sequence",
+      "A calm, family-facing system for Alasri across service, hours, greeting and occasion posts",
+      "Arabic display typesetting across both, with the headline treated as the primary image element",
+    ],
+    reflection:
+      "The two accounts ran close enough together that the discipline was in the restraint, not the ideas. It would have been easy to let the screen company's contrast and the clinic's softness meet somewhere in the middle. Keeping them apart — same hand, no shared reflexes — was the actual job.",
+    gallery: [
+      { src: w("united-frames/g1.webp"), w: 1080, h: 1350, alt: "United Frames carousel cover — four facts that change how you see screens" },
+      { src: w("united-frames/g2.webp"), w: 1080, h: 1350, alt: "United Frames post arguing a screen is a medium rather than a cost" },
+      { src: w("united-frames/g3.webp"), w: 1080, h: 1350, alt: "United Frames post about changing screen content, shown on a roadside billboard" },
+      { src: w("united-frames/g4.webp"), w: 1080, h: 1350, alt: "United Frames long-term investment post with a screen mounted on an office tower" },
+      { src: w("united-frames/g5.webp"), w: 1080, h: 1350, alt: "United Frames maintenance post showing an LED panel being serviced" },
+      { src: w("united-frames/g6.webp"), w: 1080, h: 1350, alt: "United Frames carousel closing slide with a save-the-post prompt" },
+      { src: w("united-frames/g7.webp"), w: 1080, h: 1350, alt: "United Frames carousel cover — buying your own display screen in three steps" },
+      { src: w("united-frames/g8.webp"), w: 1080, h: 1350, alt: "United Frames step one — take our number, shown on a vintage mobile phone" },
+      { src: w("united-frames/g9.webp"), w: 1080, h: 1350, alt: "United Frames step two — a site visit for location and measurements" },
+      { src: w("united-frames/g10.webp"), w: 1080, h: 1350, alt: "United Frames step three — leave the rest to us, shown on a glass facade" },
+      { src: w("united-frames/g11.webp"), w: 1080, h: 1350, alt: "United Frames screens installed in a clinic reception" },
+      { src: w("united-frames/g12.webp"), w: 1080, h: 1350, alt: "United Frames video wall post asking which panel completes the screen" },
+      { src: w("united-frames/g13.webp"), w: 1080, h: 1350, alt: "United Frames LED reception counter turned into advertising space" },
+      { src: w("united-frames/g14.webp"), w: 1080, h: 1350, alt: "United Frames Martyr's Day post with archive photography on a minaret screen" },
+      { src: w("alasri/g1.webp"), w: 1081, h: 1351, alt: "Alasri children's dentistry campaign post" },
+      { src: w("alasri/g2.webp"), w: 1081, h: 1351, alt: "Alasri late-night emergency hours post shot at the clinic building" },
+      { src: w("alasri/g3.webp"), w: 1081, h: 1351, alt: "Alasri Friday greeting post" },
+      { src: w("alasri/g4.webp"), w: 1081, h: 1351, alt: "Alasri Martyr's Day post honouring Omar Al-Mukhtar" },
+    ],
+  },
+  {
+    slug: "libyan-elite",
+    index: "08",
+    title: "Libyan Elite",
+    subtitle: "Infrastructure, sold two ways",
+    year: "2026",
+    role: "Graphic Designer",
+    client: "Libyan Elite Technical Solutions — Benghazi",
+    credit: "Freelance",
+    disciplines: ["Campaign Design", "Social Media", "Graphic Design"],
+    categories: ["Graphic Design", "Social Media"],
+    accent: "#B00020",
+    summary:
+      "A technical group with brands across fibre, hosting, broadcast and radio — and LINK, the internet company underneath it that customers actually buy from. One crimson system for the group, a separate navy one for the network, and a lockup that keeps them related.",
+    cover: { src: w("libyan-elite/hero.webp"), w: 1900, h: 1344, alt: "Libyan Elite campaign artwork announcing network coverage across 52 cities" },
+    overview:
+      "Libyan Elite Technical Solutions sits above a set of companies — LINK Communication, LINK Plus, iMagine, ServerLibya, imagine 101.1, LibyaPress.tv and LibyaFlix. The freelance engagement covered campaign design for the group itself and for LINK, its internet provider.",
+    context:
+      "The group sells what nobody sees: fibre in the ground, servers in a rack, coverage on a map. Its audience is institutional — partners, sponsors, business clients. LINK's audience is the household or the office choosing who to buy internet from this month. The same infrastructure, two completely different arguments.",
+    challenge:
+      "Give the parent a presence that reads as scale and reliability, give LINK one that reads as speed and offer, and keep the family resemblance visible without letting the two become interchangeable.",
+    approach:
+      "The group takes crimson — a deep red gradient, fibre-optic and isometric imagery, and a fixed strip of subsidiary marks along the bottom of every post, which is the cheapest and clearest way to show that a group is a group. LINK takes deep navy and electric blue, with real product in the frame: the dish on the mast, the tower network, the card sitting inside banking apps people already have. One device ties them — a Powered By Libyan Elite lockup in the corner of every LINK post — so the endorsement travels without the crimson having to.",
+    process: [
+      "Set a crimson gradient system for the group, with a permanent subsidiary logo strip",
+      "Built a separate navy system for LINK, with product and 3D staged inside the frame",
+      "Designed the Powered By Libyan Elite endorsement lockup carried across LINK's posts",
+      "Set Arabic headlines with stretched kashida so numbers and claims hold at feed size",
+      "Produced proof-led posts — coverage, partnership, sponsorship, location and payment reach",
+    ],
+    strands: [
+      {
+        name: "LINK Communication",
+        kind: "Internet provider — 2026",
+        body:
+          "LINK is the part of the group a customer actually signs up to, so its posts argue with evidence rather than adjectives. The network is drawn as an isometric constellation of towers before any claim about speed is made; the switching offer leads with the hardware on the mast and a phone number set large enough to dial from a moving thumb; the prepaid card is shown living inside the banking apps people already have, with the bank marks laid out as a grid of proof. Deep navy keeps it clear of the group's crimson, and the endorsement lockup in the corner does the rest.",
+      },
+    ],
+    outcome: [
+      "A crimson campaign system for the group covering sponsorship, coverage, partnership and facility announcements",
+      "A navy campaign system for LINK covering network, offer, payment and institutional posts",
+      "An endorsement lockup connecting every LINK post back to the group",
+      "Formats produced at both feed and print scale, including an A4-resolution coverage piece",
+    ],
+    reflection:
+      "Sponsorship and coverage posts are usually where a system quietly dies — partner logos arrive at different sizes, in different colours, and the layout bends to accommodate them. Fixing the subsidiary strip and the partner card as permanent, sized components meant new marks could arrive without the design being renegotiated each time.",
+    palette: [
+      { hex: "#B00020", name: "Elite Crimson" },
+      { hex: "#001080", name: "LINK Navy" },
+      { hex: "#FFFFFF", name: "White" },
+    ],
+    gallery: [
+      { src: w("libyan-elite/g1.webp"), w: 1594, h: 1461, alt: "Libyan Elite post announcing its technical sponsorship of the Benghazi International Construction Exhibition" },
+      { src: w("libyan-elite/g2.webp"), w: 1080, h: 764, alt: "Libyan Elite business connectivity post with an isometric workspace forming a network symbol" },
+      { src: w("libyan-elite/g3.webp"), w: 1080, h: 764, alt: "Libyan Elite post announcing LINK's presence inside Zaho Tower in Benghazi" },
+      { src: w("link/g1.webp"), w: 1600, h: 1236, alt: "LINK Communication post showing its tower network as an isometric constellation" },
+      { src: w("link/g2.webp"), w: 1600, h: 1236, alt: "LINK Communication switching offer post with dish hardware mounted on a mast" },
+      { src: w("link/g3.webp"), w: 1600, h: 1236, alt: "LINK prepaid card post showing it available inside Libyan banking apps" },
+      { src: w("link/g4.webp"), w: 1600, h: 1236, alt: "LINK Communication brand post set against a government headquarters building" },
+    ],
+  },
+  {
+    slug: "artisans",
+    index: "09",
     title: "Artisans Digital Agency",
     subtitle: "Agency voice, and the client work underneath it",
     year: "2023 — 2026",
@@ -429,7 +564,7 @@ export const projects: Project[] = [
 
 export const traveler = {
   slug: "traveler",
-  index: "08",
+  index: "10",
   title: "Traveler",
   year: "2025",
   role: "Developer",
@@ -476,6 +611,15 @@ export const capabilities = [
 export const tools = ["Figma", "Affinity", "WordPress", "Claude AI"];
 
 export const experience = [
+  {
+    from: "2026",
+    to: "Present",
+    role: "Graphic Designer",
+    org: "Frame Agency",
+    place: "Benghazi, Libya",
+    body: "Campaign and graphic design for the studio's client accounts — among them United Frames, an LED advertising screen company, and Alasri, a dental and oral surgery centre. Building a repeatable campaign system per client and producing against it week to week: Arabic display typesetting, multi-slide carousels, in-situ product staging and national occasion content.",
+    tags: ["Graphic Design", "Campaign Design", "Social Media"],
+  },
   {
     from: "2025",
     to: "Present",

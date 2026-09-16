@@ -35,7 +35,7 @@ export default function WorkPage() {
           </h1>
           <p className="lede rv" style={{ maxWidth: "44ch", marginTop: 22 }}>
             Identity systems, interfaces, and the campaigns that carry them — across sport, retail,
-            real estate, engineering, fashion and gaming.
+            real estate, engineering, telecoms, healthcare, fashion and gaming.
           </p>
         </div>
 
