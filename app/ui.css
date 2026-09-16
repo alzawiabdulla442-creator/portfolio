@@ -1029,36 +1029,6 @@
 
 /* Client projects folded into a larger engagement — sits a step below the
    main case-study voice so the parent story stays the loudest thing here. */
-.strands {
-  display: flex;
-  flex-direction: column;
-  margin-top: 4px;
-  max-width: 60ch;
-}
-.strand {
-  padding-block: clamp(16px, 2vw, 24px);
-  border-top: 1px solid var(--line);
-}
-.strand-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 6px 14px;
-  margin-bottom: 10px;
-}
-.strand-head h4 {
-  font-size: var(--step-1);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-}
-.cs-block .strand p {
-  font-size: var(--step-0);
-  line-height: 1.5;
-  letter-spacing: -0.01em;
-  color: color-mix(in srgb, var(--paper) 76%, transparent);
-}
-
 .swatches {
   display: flex;
   flex-wrap: wrap;
@@ -1113,6 +1083,118 @@
 .gitem img {
   width: 100%;
   height: auto;
+}
+
+/* ---------- case study gallery, tabbed by company ---------- */
+
+.cs-gal {
+  padding-bottom: clamp(50px, 8vh, 110px);
+}
+
+.csg-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 28px;
+  padding-bottom: clamp(14px, 2vw, 22px);
+  margin-bottom: clamp(20px, 3vw, 36px);
+  border-bottom: 1px solid var(--line);
+}
+
+.csg-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+/* Same active-state language as the header nav: an amber pill, with the
+   outline scaling in on hover. */
+.csg-tab {
+  position: relative;
+  appearance: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  font-size: var(--step--2);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--paper) 62%, transparent);
+  padding: 10px 16px;
+  border-radius: 999px;
+  overflow: hidden;
+  transition: color 0.35s var(--ease);
+}
+.csg-tab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(244, 241, 234, 0.16);
+  border-radius: 999px;
+  opacity: 0;
+  transform: scale(0.85);
+  transition:
+    opacity 0.4s var(--ease),
+    transform 0.4s var(--ease);
+}
+.csg-tab:hover {
+  color: var(--paper);
+}
+.csg-tab:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+.csg-tab.is-active {
+  color: var(--ink);
+}
+.csg-tab.is-active::before {
+  opacity: 1;
+  transform: scale(1);
+  background: var(--amber);
+  border-color: var(--amber);
+}
+.csg-tab-i {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.csg-tab-n {
+  font-size: 0.85em;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.55;
+}
+
+.csg-intro {
+  max-width: 62ch;
+  margin-bottom: clamp(20px, 3vw, 34px);
+}
+.csg-intro p:not(.meta) {
+  margin-top: 10px;
+  font-size: var(--step-0);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: color-mix(in srgb, var(--paper) 76%, transparent);
+}
+
+/* Every panel stays in the DOM so all of the alt text ships with the page.
+   Going from display:none to visible restarts this, so each switch animates. */
+.csg-panel {
+  animation: csgIn 0.5s var(--ease) both;
+}
+@keyframes csgIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .cs-side {

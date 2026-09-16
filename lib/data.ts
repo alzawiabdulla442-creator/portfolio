@@ -2,7 +2,9 @@ export type Img = { src: string; w: number; h: number; alt: string };
 
 // A client project folded into a larger engagement, so the merged case study
 // can still tell each one's story instead of flattening them into one paragraph.
-export type Strand = { name: string; kind: string; body: string };
+// A strand owns its own imagery — the case study tabs the strands apart rather
+// than pouring every client into one undifferentiated grid.
+export type Strand = { name: string; kind: string; body: string; gallery?: Img[] };
 
 export type Project = {
   slug: string;
@@ -32,6 +34,9 @@ export type Project = {
   reflection?: string;
   palette?: { hex: string; name: string }[];
   typefaces?: { label: string; name: string }[];
+  // When strands split the gallery by client, `own` labels the tab holding the
+  // engagement's own imagery — the studio's or the parent brand's work.
+  own?: { name: string; kind: string; body?: string };
   gallery: Img[];
 };
 
@@ -388,12 +393,34 @@ export const projects: Project[] = [
         kind: "LED advertising screens — 2026",
         body:
           "A company whose product is a screen has a particular problem: its own advertising has to prove the thing it sells. The system answers by staging the screens in place — on a tower block, on a minaret, over a shop counter, inside a clinic reception — so each post is a demonstration rather than a claim. Around that, a violet-on-black frame with the brand's angled panel drifting through the background, and two carousels doing the persuasion: four facts arguing that a screen is a medium and not a cost, and a three-step explainer that ends with leaving the rest to them. The strongest piece in the set is the one selling nothing at all — the company's own screens reimagined as an 80s billboard, painted with period Libyan soft-drink bottles.",
+        gallery: [
+          { src: w("united-frames/g1.webp"), w: 1080, h: 1350, alt: "United Frames carousel cover — four facts that change how you see screens" },
+          { src: w("united-frames/g2.webp"), w: 1080, h: 1350, alt: "United Frames post arguing a screen is a medium rather than a cost" },
+          { src: w("united-frames/g3.webp"), w: 1080, h: 1350, alt: "United Frames post about changing screen content, shown on a roadside billboard" },
+          { src: w("united-frames/g4.webp"), w: 1080, h: 1350, alt: "United Frames long-term investment post with a screen mounted on an office tower" },
+          { src: w("united-frames/g5.webp"), w: 1080, h: 1350, alt: "United Frames maintenance post showing an LED panel being serviced" },
+          { src: w("united-frames/g6.webp"), w: 1080, h: 1350, alt: "United Frames carousel closing slide with a save-the-post prompt" },
+          { src: w("united-frames/g7.webp"), w: 1080, h: 1350, alt: "United Frames carousel cover — buying your own display screen in three steps" },
+          { src: w("united-frames/g8.webp"), w: 1080, h: 1350, alt: "United Frames step one — take our number, shown on a vintage mobile phone" },
+          { src: w("united-frames/g9.webp"), w: 1080, h: 1350, alt: "United Frames step two — a site visit for location and measurements" },
+          { src: w("united-frames/g10.webp"), w: 1080, h: 1350, alt: "United Frames step three — leave the rest to us, shown on a glass facade" },
+          { src: w("united-frames/g11.webp"), w: 1080, h: 1350, alt: "United Frames screens installed in a clinic reception" },
+          { src: w("united-frames/g12.webp"), w: 1080, h: 1350, alt: "United Frames video wall post asking which panel completes the screen" },
+          { src: w("united-frames/g13.webp"), w: 1080, h: 1350, alt: "United Frames LED reception counter turned into advertising space" },
+          { src: w("united-frames/g14.webp"), w: 1080, h: 1350, alt: "United Frames Martyr's Day post with archive photography on a minaret screen" },
+        ],
       },
       {
         name: "Alasri",
         kind: "Dental centre — 2026",
         body:
           "Dentistry advertises to people who would rather not think about dentistry, so the system is built to lower the temperature. A soft blue and cream ground, organic shapes borrowed from the curve of the brand's tooth mark, and a lot of air. The content moves between registers without changing the frame — children's dentistry shot warm and playful, late-night emergency hours shot at the actual building after dark, a Friday greeting, a Martyr's Day piece in sepia. The mark sits in the same corner every time, which is most of what makes a small feed feel established.",
+        gallery: [
+          { src: w("alasri/g1.webp"), w: 1081, h: 1351, alt: "Alasri children's dentistry campaign post" },
+          { src: w("alasri/g2.webp"), w: 1081, h: 1351, alt: "Alasri late-night emergency hours post shot at the clinic building" },
+          { src: w("alasri/g3.webp"), w: 1081, h: 1351, alt: "Alasri Friday greeting post" },
+          { src: w("alasri/g4.webp"), w: 1081, h: 1351, alt: "Alasri Martyr's Day post honouring Omar Al-Mukhtar" },
+        ],
       },
     ],
     outcome: [
@@ -404,26 +431,7 @@ export const projects: Project[] = [
     ],
     reflection:
       "The two accounts ran close enough together that the discipline was in the restraint, not the ideas. It would have been easy to let the screen company's contrast and the clinic's softness meet somewhere in the middle. Keeping them apart — same hand, no shared reflexes — was the actual job.",
-    gallery: [
-      { src: w("united-frames/g1.webp"), w: 1080, h: 1350, alt: "United Frames carousel cover — four facts that change how you see screens" },
-      { src: w("united-frames/g2.webp"), w: 1080, h: 1350, alt: "United Frames post arguing a screen is a medium rather than a cost" },
-      { src: w("united-frames/g3.webp"), w: 1080, h: 1350, alt: "United Frames post about changing screen content, shown on a roadside billboard" },
-      { src: w("united-frames/g4.webp"), w: 1080, h: 1350, alt: "United Frames long-term investment post with a screen mounted on an office tower" },
-      { src: w("united-frames/g5.webp"), w: 1080, h: 1350, alt: "United Frames maintenance post showing an LED panel being serviced" },
-      { src: w("united-frames/g6.webp"), w: 1080, h: 1350, alt: "United Frames carousel closing slide with a save-the-post prompt" },
-      { src: w("united-frames/g7.webp"), w: 1080, h: 1350, alt: "United Frames carousel cover — buying your own display screen in three steps" },
-      { src: w("united-frames/g8.webp"), w: 1080, h: 1350, alt: "United Frames step one — take our number, shown on a vintage mobile phone" },
-      { src: w("united-frames/g9.webp"), w: 1080, h: 1350, alt: "United Frames step two — a site visit for location and measurements" },
-      { src: w("united-frames/g10.webp"), w: 1080, h: 1350, alt: "United Frames step three — leave the rest to us, shown on a glass facade" },
-      { src: w("united-frames/g11.webp"), w: 1080, h: 1350, alt: "United Frames screens installed in a clinic reception" },
-      { src: w("united-frames/g12.webp"), w: 1080, h: 1350, alt: "United Frames video wall post asking which panel completes the screen" },
-      { src: w("united-frames/g13.webp"), w: 1080, h: 1350, alt: "United Frames LED reception counter turned into advertising space" },
-      { src: w("united-frames/g14.webp"), w: 1080, h: 1350, alt: "United Frames Martyr's Day post with archive photography on a minaret screen" },
-      { src: w("alasri/g1.webp"), w: 1081, h: 1351, alt: "Alasri children's dentistry campaign post" },
-      { src: w("alasri/g2.webp"), w: 1081, h: 1351, alt: "Alasri late-night emergency hours post shot at the clinic building" },
-      { src: w("alasri/g3.webp"), w: 1081, h: 1351, alt: "Alasri Friday greeting post" },
-      { src: w("alasri/g4.webp"), w: 1081, h: 1351, alt: "Alasri Martyr's Day post honouring Omar Al-Mukhtar" },
-    ],
+    gallery: [],
   },
   {
     slug: "libyan-elite",
@@ -461,6 +469,12 @@ export const projects: Project[] = [
         kind: "Internet provider — 2026",
         body:
           "LINK is the part of the group a customer actually signs up to, so its posts argue with evidence rather than adjectives. The network is drawn as an isometric constellation of towers before any claim about speed is made; the switching offer leads with the hardware on the mast and a phone number set large enough to dial from a moving thumb; the prepaid card is shown living inside the banking apps people already have, with the bank marks laid out as a grid of proof. Deep navy keeps it clear of the group's crimson, and the endorsement lockup in the corner does the rest.",
+        gallery: [
+          { src: w("link/g1.webp"), w: 1600, h: 1236, alt: "LINK Communication post showing its tower network as an isometric constellation" },
+          { src: w("link/g2.webp"), w: 1600, h: 1236, alt: "LINK Communication switching offer post with dish hardware mounted on a mast" },
+          { src: w("link/g3.webp"), w: 1600, h: 1236, alt: "LINK prepaid card post showing it available inside Libyan banking apps" },
+          { src: w("link/g4.webp"), w: 1600, h: 1236, alt: "LINK Communication brand post set against a government headquarters building" },
+        ],
       },
     ],
     outcome: [
@@ -476,14 +490,16 @@ export const projects: Project[] = [
       { hex: "#001080", name: "LINK Navy" },
       { hex: "#FFFFFF", name: "White" },
     ],
+    own: {
+      name: "Libyan Elite",
+      kind: "Group brand — 2026",
+      body:
+        "The group's own posts do the institutional work — sponsorship, coverage, partnerships, and the buildings behind them — with the subsidiary strip fixed along the bottom of every frame so the scale is stated before the claim is.",
+    },
     gallery: [
       { src: w("libyan-elite/g1.webp"), w: 1594, h: 1461, alt: "Libyan Elite post announcing its technical sponsorship of the Benghazi International Construction Exhibition" },
       { src: w("libyan-elite/g2.webp"), w: 1080, h: 764, alt: "Libyan Elite business connectivity post with an isometric workspace forming a network symbol" },
       { src: w("libyan-elite/g3.webp"), w: 1080, h: 764, alt: "Libyan Elite post announcing LINK's presence inside Zaho Tower in Benghazi" },
-      { src: w("link/g1.webp"), w: 1600, h: 1236, alt: "LINK Communication post showing its tower network as an isometric constellation" },
-      { src: w("link/g2.webp"), w: 1600, h: 1236, alt: "LINK Communication switching offer post with dish hardware mounted on a mast" },
-      { src: w("link/g3.webp"), w: 1600, h: 1236, alt: "LINK prepaid card post showing it available inside Libyan banking apps" },
-      { src: w("link/g4.webp"), w: 1600, h: 1236, alt: "LINK Communication brand post set against a government headquarters building" },
     ],
   },
   {
@@ -523,12 +539,26 @@ export const projects: Project[] = [
         kind: "Property platform — 2025",
         body:
           "A real-estate platform with apps on both stores, and three audiences who open it for different reasons: owners need listing to look easy, agencies need it to look like growth, buyers need the inventory to look real. A marketplace only works if both sides show up, so one blue-to-cyan ground and one typographic frame carry all three audiences in Arabic. What changes between them is the evidence — 3D property iconography for owners, workplace illustration for agencies, and real interface screens for buyers.",
+        gallery: [
+          { src: w("baitna/hero.webp"), w: 1900, h: 997, alt: "Baitna property app marketing visual with app store links" },
+          { src: w("baitna/g1.webp"), w: 1300, h: 1300, alt: "Baitna campaign post aimed at property owners" },
+          { src: w("baitna/g5.webp"), w: 1300, h: 1300, alt: "Baitna campaign post aimed at home seekers" },
+          { src: w("baitna/g2.webp"), w: 1300, h: 731, alt: "Baitna post covering what matters when buying property" },
+          { src: w("baitna/g3.webp"), w: 1300, h: 731, alt: "Baitna listing and management interface visual" },
+          { src: w("baitna/g4.webp"), w: 1300, h: 731, alt: "Baitna presence and listing quality visual" },
+        ],
       },
       {
         name: "Slinger Swap",
         kind: "Game trading — 2025",
         body:
           "A platform that formalises something players already did informally: swapping physical discs through group chats and comment threads. The campaign's job was to point at the existing behaviour rather than explain a new mechanic. Real catalogue covers do the recognition work, a magenta-into-deep-navy gradient does the atmosphere, and the copy is written in the register of the audience — the question a player would actually ask before they'd consider trading.",
+        gallery: [
+          { src: w("slinger-swap/hero.webp"), w: 1900, h: 1069, alt: "Slinger Swap game trading campaign visual" },
+          { src: w("slinger-swap/g1.webp"), w: 1300, h: 734, alt: "Slinger Swap console and title campaign visual" },
+          { src: w("slinger-swap/g2.webp"), w: 1300, h: 731, alt: "Slinger Swap title-led promotional artwork" },
+          { src: w("slinger-swap/g3.webp"), w: 1300, h: 731, alt: "Slinger Swap library trading campaign visual" },
+        ],
       },
     ],
     outcome: [
@@ -541,6 +571,12 @@ export const projects: Project[] = [
     ],
     reflection:
       "Three months was supposed to be the whole thing. Staying meant learning the parts of the process I'd otherwise only have seen from one side — which is most of why I can now take a project from mark to interface to campaign without handing it over.",
+    own: {
+      name: "Artisans",
+      kind: "Agency brand and client work — 2023 — 2026",
+      body:
+        "The agency's own presence, which had to be sharper than anything it shipped, alongside the client work that can be shown — engineering, financing, higher education and dental supply, across identity, interface and campaign.",
+    },
     gallery: [
       { src: w("artisans/g6.webp"), w: 1300, h: 1300, alt: "Artisans agency brand post" },
       { src: w("artisans/g5.webp"), w: 1275, h: 1275, alt: "APEX engineering stationery and identity application" },
@@ -548,16 +584,6 @@ export const projects: Project[] = [
       { src: w("artisans/g2.webp"), w: 1265, h: 1265, alt: "Financing platform interface visual" },
       { src: w("artisans/g3.webp"), w: 1267, h: 1267, alt: "College of Graduate Studies website visual" },
       { src: w("artisans/g4.webp"), w: 1266, h: 1266, alt: "Sadeem Dental Co. application visual" },
-      { src: w("baitna/hero.webp"), w: 1900, h: 997, alt: "Baitna property app marketing visual with app store links" },
-      { src: w("baitna/g1.webp"), w: 1300, h: 1300, alt: "Baitna campaign post aimed at property owners" },
-      { src: w("baitna/g5.webp"), w: 1300, h: 1300, alt: "Baitna campaign post aimed at home seekers" },
-      { src: w("baitna/g2.webp"), w: 1300, h: 731, alt: "Baitna post covering what matters when buying property" },
-      { src: w("baitna/g3.webp"), w: 1300, h: 731, alt: "Baitna listing and management interface visual" },
-      { src: w("baitna/g4.webp"), w: 1300, h: 731, alt: "Baitna presence and listing quality visual" },
-      { src: w("slinger-swap/hero.webp"), w: 1900, h: 1069, alt: "Slinger Swap game trading campaign visual" },
-      { src: w("slinger-swap/g1.webp"), w: 1300, h: 734, alt: "Slinger Swap console and title campaign visual" },
-      { src: w("slinger-swap/g2.webp"), w: 1300, h: 731, alt: "Slinger Swap title-led promotional artwork" },
-      { src: w("slinger-swap/g3.webp"), w: 1300, h: 731, alt: "Slinger Swap library trading campaign visual" },
     ],
   },
 ];

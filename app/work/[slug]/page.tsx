@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects, getProject, projectSlugs } from "@/lib/data";
 import { Contact } from "@/components/sections";
+import { CaseGallery, type GalleryGroup } from "@/components/case-gallery";
 import { Arrow } from "@/components/bits";
 
 export function generateStaticParams() {
@@ -38,9 +39,30 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
 
   const i = projects.findIndex((x) => x.slug === slug);
   const next = projects[(i + 1) % projects.length];
-  // group by orientation so every gallery row stays flush instead of ragged
-  const wide = p.gallery.filter((g) => g.w / g.h > 1.05);
-  const tall = p.gallery.filter((g) => g.w / g.h <= 1.05);
+
+  // An engagement spanning several companies is tabbed apart in the gallery —
+  // the engagement's own work first, then each client strand. Everything else
+  // is a single group, which renders as a plain grid with no tabs.
+  const groups: GalleryGroup[] = p.strands?.length
+    ? [
+        ...(p.gallery.length
+          ? [
+              {
+                name: p.own?.name ?? p.title,
+                kind: p.own?.kind,
+                body: p.own?.body,
+                gallery: p.gallery,
+              },
+            ]
+          : []),
+        ...p.strands.map((s) => ({
+          name: s.name,
+          kind: s.kind,
+          body: s.body,
+          gallery: s.gallery ?? [],
+        })),
+      ]
+    : [{ name: p.title, gallery: p.gallery }];
 
   return (
     <>
@@ -183,66 +205,11 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
                   </ul>
                 </div>
               )}
-              {p.strands && (
-                <div className="cs-block rv">
-                  <h3>Client work</h3>
-                  <div className="strands">
-                    {p.strands.map((s) => (
-                      <div className="strand" key={s.name}>
-                        <div className="strand-head">
-                          <h4>{s.name}</h4>
-                          <span className="meta">{s.kind}</span>
-                        </div>
-                        <p>{s.body}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
             </div>
           </div>
         </section>
 
-        <section className="shell" style={{ paddingBottom: "clamp(50px,8vh,110px)" }}>
-          {wide.length > 0 && (
-            <div className="gal gal-wide">
-              {wide.map((g, n) => (
-                <figure
-                  className={`gitem imgmask ${n === 0 && wide.length % 2 === 1 ? "gitem-full" : ""}`}
-                  key={g.src}
-                >
-                  <Image
-                    src={g.src}
-                    alt={g.alt}
-                    width={g.w}
-                    height={g.h}
-                    sizes="(max-width: 760px) 92vw, 46vw"
-                    quality={70}
-                    loading="lazy"
-                  />
-                </figure>
-              ))}
-            </div>
-          )}
-
-          {tall.length > 0 && (
-            <div className="gal gal-tall" style={{ marginTop: wide.length ? "clamp(10px,1.4vw,20px)" : 0 }}>
-              {tall.map((g) => (
-                <figure className="gitem imgmask" key={g.src}>
-                  <Image
-                    src={g.src}
-                    alt={g.alt}
-                    width={g.w}
-                    height={g.h}
-                    sizes="(max-width: 620px) 46vw, (max-width: 1100px) 31vw, 23vw"
-                    quality={70}
-                    loading="lazy"
-                  />
-                </figure>
-              ))}
-            </div>
-          )}
-        </section>
+        <CaseGallery groups={groups} />
 
         {(p.outcome || p.reflection) && (
           <section className="section on-paper" style={{ paddingBlock: "clamp(60px,9vh,120px)" }}>
