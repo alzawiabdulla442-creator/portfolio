@@ -14,7 +14,10 @@ npm start          # serve the production build
 
 ## Live site
 
-**https://portfolio-site-two-zeta-98.vercel.app**
+**https://abdullah-alzawi.vercel.app**
+
+(The older `portfolio-site-two-zeta-98.vercel.app` still works — it now
+redirects here.)
 
 Deployed on Vercel from [github.com/alzawiabdulla442-creator/portfolio](https://github.com/alzawiabdulla442-creator/portfolio).
 Every push to `main` triggers a new deployment.
@@ -47,9 +50,12 @@ shorter one, rename the project in the Vercel dashboard
 `<new-name>.vercel.app` if that name is free. For a real domain, add it under
 Project → Settings → Domains.
 
-Either way, afterwards update the `SITE` constant in `app/layout.tsx`,
-`app/sitemap.ts` and `app/robots.ts` to the new address and push, so canonical
-URLs, the sitemap and Open Graph images point at the right place.
+Either way, afterwards point the site at the new address so canonical URLs, the
+sitemap and Open Graph images follow. The origin lives in exactly one place,
+`lib/site.ts` — `app/layout.tsx`, `app/sitemap.ts` and `app/robots.ts` all
+import it. Either edit the fallback there and push, or set
+`NEXT_PUBLIC_SITE_URL` in the Vercel project (Settings → Environment
+Variables) and redeploy, which overrides it with no code change at all.
 
 ## Structure
 
