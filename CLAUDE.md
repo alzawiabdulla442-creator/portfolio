@@ -44,7 +44,7 @@ imagery — the studio's or the parent brand's. The case study tabs these apart
 line, framing paragraph and images.
 
 A project with no strands passes a single group and renders a plain grid with no
-tabs. A project whose imagery all belongs to clients — Frame Agency — has
+tabs. A project whose imagery all belongs to clients — Frame Studio — has
 `gallery: []` and no `own`, so it gets one tab per client and nothing else.
 
 Panels all stay in the DOM with `hidden` on the inactive ones, so every client's

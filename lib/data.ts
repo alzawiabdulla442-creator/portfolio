@@ -359,13 +359,13 @@ export const projects: Project[] = [
   {
     slug: "frame-agency",
     index: "07",
-    title: "Frame Agency",
+    title: "Frame Studio",
     subtitle: "A screen company and a dental centre, in the same week",
     year: "2026",
     role: "Graphic Designer",
-    client: "Frame Agency — Benghazi",
-    rights: "All rights reserved to Frame Agency",
-    credit: "© Frame Agency",
+    client: "Frame Studio — Benghazi",
+    rights: "All rights reserved to Frame Studio",
+    credit: "© Frame Studio",
     disciplines: ["Campaign Design", "Social Media", "Graphic Design"],
     categories: ["Graphic Design", "Social Media"],
     accent: "#9050F0",
@@ -373,7 +373,7 @@ export const projects: Project[] = [
       "Client campaign design at a Benghazi studio — an advertising company that sells LED screens, and a dental centre that sells calm. Two systems built far enough apart that neither leaks into the other.",
     cover: { src: w("united-frames/hero.webp"), w: 1080, h: 1350, alt: "United Frames campaign post imagining its screens as an 80s billboard" },
     overview:
-      "Frame Agency is a studio in Benghazi; this is the client work I designed there. Two of the accounts can be shown: United Frames, which builds, rents and maintains LED advertising screens, and Alasri, a dental and oral surgery centre. All of it is campaign design — work that has to land in a feed, in Arabic, and still read as the brand it belongs to.",
+      "Frame Studio is a design studio in Benghazi; this is the client work I designed there. Two of the accounts can be shown: United Frames, which builds, rents and maintains LED advertising screens, and Alasri, a dental and oral surgery centre. All of it is campaign design — work that has to land in a feed, in Arabic, and still read as the brand it belongs to.",
     context:
       "Agency work means holding unrelated audiences in your head on the same calendar. United Frames sells to a business owner deciding where an advertising budget goes. Alasri talks to a family deciding where to take a child with toothache. Nothing about the two should look alike.",
     challenge:
@@ -641,7 +641,7 @@ export const experience = [
     from: "2026",
     to: "Present",
     role: "Graphic Designer",
-    org: "Frame Agency",
+    org: "Frame Studio",
     place: "Benghazi, Libya",
     body: "Campaign and graphic design for the studio's client accounts — among them United Frames, an LED advertising screen company, and Alasri, a dental and oral surgery centre. Building a repeatable campaign system per client and producing against it week to week: Arabic display typesetting, multi-slide carousels, in-situ product staging and national occasion content.",
     tags: ["Graphic Design", "Campaign Design", "Social Media"],

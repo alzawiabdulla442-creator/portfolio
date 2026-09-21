@@ -60,7 +60,7 @@ export default function AboutPage() {
               </p>
 
               <p className="body rv" style={{ marginTop: 16 }}>
-                Since 2026 I&apos;ve been a graphic designer at Frame Agency, working across the
+                Since 2026 I&apos;ve been a graphic designer at Frame Studio, working across the
                 studio&apos;s client accounts — campaign systems in Arabic for an LED advertising
                 company and a dental centre, among others.
               </p>
